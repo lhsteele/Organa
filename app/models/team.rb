@@ -10,6 +10,9 @@
 #
 
 class Team < ApplicationRecord
+  validates :team_name, presence: true
+  validates :description, presence: true
+
   has_many :members
   has_many :projects
 end

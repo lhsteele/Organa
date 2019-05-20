@@ -13,6 +13,9 @@
 # index on:
 # owner_id
 class Project < ApplicationRecord
+  validates :name, presence: true
+  validates :owner_id, presence: true
+
   belongs_to :owner
   has_many :lists
   belongs_to :team

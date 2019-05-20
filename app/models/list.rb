@@ -13,6 +13,9 @@
 # index on:
 # project_id
 class List < ApplicationRecord
+  validates :name, presence: true
+  validates :project_id, presence: true
+
   belongs_to :project
   has_many :tasks
 end

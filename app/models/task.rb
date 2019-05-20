@@ -15,5 +15,9 @@
 # foreign_key on:
 # list_id
 class Task < ApplicationRecord
+  validates :task_name, presence: true
+  validates :list_id, presence: true
+  validates :complete, inclusion: { in: [true, false] }
+
   belongs_to :list
 end
