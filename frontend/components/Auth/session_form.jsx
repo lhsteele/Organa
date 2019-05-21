@@ -22,7 +22,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.formAction(user).then(this.props.closeModal);
+    this.props.formAction(user).then(this.props.closeModal)
+      .then(() => this.props.history.push('/home'));
   }
 
   renderErrors() {
@@ -62,6 +63,14 @@ class SessionForm extends React.Component {
           <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <div className="login-form">
+            <label>
+              Username
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.updateForm("username")}
+                className="login-input" />
+            </label>
             <label>
               Email Address 
               <input 
