@@ -1,20 +1,17 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-// import GreetingContainer from './greeting/greeting_container'
-// import LogInFormContainer from './auth/login_form_container'
-// import SignUpFormContainer from './auth/signup_form_container'
-// import { AuthRoute } from '../util/route_util'
-// import SearchContainer from '../components/search/search_container'
+import Modal from './Modal/modal';
+import Splash from './Splash/splash_container';
+import LoginFormContainer from './Auth/login_form_container';
+import SignupFormContainer from './Auth/signup_form_container';
+
 
 const App = () => (
   <div>
-    <header>
-      <h1>Organa</h1>
-      {/* <GreetingContainer /> */}
-    </header>
-    {/* <AuthRoute path="/login" component={LogInFormContainer} />
-    <AuthRoute path="/signup" component={SignUpFormContainer} />
-    <Route exact path="/" component={SearchContainer} /> */}
+    <Modal />
+    <div>
+      <Splash />
+    </div>
   </div>
 )
 
