@@ -10,11 +10,6 @@ const Splash = ({ currentUser, openModal, logout }) => {
             <label className="organa">organa</label>
           </div>
           <div className="splashnav-buttons">
-            <button
-              className="splashnav-demo-login-button"
-              >
-              Demo as Leia
-            </button>
             <button 
               className="splashnav-login-button"
               onClick={() => openModal('login')}>

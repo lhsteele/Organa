@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
       email: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.flipModal = this.flipModal.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   updateForm(field) {
@@ -28,6 +28,12 @@ class SessionForm extends React.Component {
     // isValidEmail = document.getElementById('email-input').checkValidity();
   }
 
+  handleDemo(e) {
+    e.preventDefault()
+    this.props.loginDemo().then(this.props.closeModal)
+      .then(() => this.props.history.push('/home'));
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -40,24 +46,15 @@ class SessionForm extends React.Component {
     );
   }
 
-  flipModal() {
-    this.props.formType = 'signup'
-    this.props.closeModal
-    this.props.openModal  
-  }
-
   render() {
     let h3
     let h4
     let button
-    let space
     let h6
     if (this.props.formType == 'login') {
       h3 = <h3>Log in</h3>
       h4 = "" 
       button = "Log in"
-      space = <div></div>
-      // h6 = <div className="dha-signup-button" onClick={() => this.props.openModal('signup')}>Don't have an account? Sign Up</div>
       h6 = <p className="dha-signup-button" onClick={() => this.props.openModal('signup')}>
         Don't have an account? 
         <span className="sign-up">  Sign Up</span>
@@ -66,7 +63,6 @@ class SessionForm extends React.Component {
       h3 = <h3>Start your free trial</h3>
       h4 = <h4>Please use your work email address so we can connect you with your team at the Rebel base.</h4>
       button = "Try for free"
-      space = ""
       h6 = <h6>By signing up, I agree to the Organa Privacy Policy and Terms of Service</h6>   
     }
     return (
@@ -105,18 +101,18 @@ class SessionForm extends React.Component {
                 className="login-input"
                 required minLength="6"/>
             </label>
-            
               <input 
                 className="user-auth-form-submit" 
                 type="submit"
                 value={button}/>
-            
             <div className="error-message">
               {this.renderErrors()}
             </div>
             <br/>
-            {space}
             {h6}
+            <div onClick={this.handleDemo}>
+              Demo as Leia
+            </div>          
           </div>
         </form>
       </div>
