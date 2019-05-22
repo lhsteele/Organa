@@ -8,18 +8,17 @@
 
 .splash-navbar {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .splash-logo {
   margin: 20px;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 .logo {
   padding: 10px;
-  background-image: image_url('rebel_logo.png');
   width: 40px;
   height: 40px;
 }
@@ -84,7 +83,7 @@ main {
   font-size: medium;
   color: white;
   margin: auto;
-  margin-top: 50px
+  margin-top: 50px;
 }
 
 .asana-splash {

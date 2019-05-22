@@ -24,7 +24,7 @@ const Splash = ({ currentUser, openModal, logout }) => {
         </nav>
         <main>
           <h2 className="splash-h2">Make more time for the work that matters most</h2>
-        <h3 className="splash-h3">Organa is the work management platform used by the Rebel Alliance to manage peace-keeping operations.</h3>
+        <h3 className="splash-h3">Organa is the work management platform used by the Rebel Alliance to manage peace-keeping missions.</h3>
           <button className="splash-main-try-button" onClick={() => openModal('signup')}>Try for free</button>
           <img className="asana-splash" src={window.asanaSplashURL}/>
         </main>
