@@ -25,29 +25,35 @@
   width: 60%;
   margin: auto;
   color: rgb(133, 133, 133);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .login-form {
   /* background-color: rgb(227, 227, 227); */
   background-color: red;
   height: 350px;
-  width: 350px;
+  width: 500px;
   border: 1px black;
-  margin: auto;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  width: 500px;
+  margin: auto;
+  justify-content: center;
+  /* position: fixed; */
 }
 
 .user-auth-label {
   margin-top: 20px;
   font-size: large;
+  text-align: left;
+  padding: 0px 20px;
 }
 
 .login-input {
   margin: auto;
+  margin-top: 10px;
   width: 450px;
   height: 35px;
   position: relative;
