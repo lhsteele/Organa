@@ -1,5 +1,4 @@
 import React from 'react';
-// import { format } from 'util';
 import { withRouter } from 'react-router-dom'
 
 class SessionForm extends React.Component {
@@ -44,43 +43,47 @@ class SessionForm extends React.Component {
     let button
     let h6
     if (this.props.formType == 'login') {
-      h3 = "Log in"
+      h3 = <h3>Log in</h3>
       h4 = "" 
       button = "Log in"
       h6 = ""
     } else {
-      h3 = "Start your free trial"
-      h4 = "Please use your work email address so we can connect you with your team in Asana."
+      h3 = <h3>Start your free trial</h3>
+      h4 = <h4>Please use your work email address so we can connect you with your team in Asana.</h4>
       button = "Try for free"
-      h6 = "By signing up, I agree to the Asana Privacy Policy and Terms of Service"
+      h6 = <h6>By signing up, I agree to the Asana Privacy Policy and Terms of Service</h6>
+        
     }
     return (
       <div className="user-auth-form">
         <form onSubmit={this.handleSubmit} className="user-auth-box">
-          {h3}
+          <div onClick={this.props.closeModal} className="close-x">X</div>
+          {h3} 
           <br/>
           {h4}
-          <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <div className="login-form">
-            <label>
+            <label className="user-auth-label">
               Username
+              <br />
               <input
                 type="text"
                 value={this.state.username}
                 onChange={this.updateForm("username")}
                 className="login-input" />
             </label>
-            <label>
+            <label className="user-auth-label">
               Email Address 
+              <br />
               <input 
                 type="text"
                 value={this.state.email}
                 onChange={this.updateForm("email")}
                 className="login-input"/>
             </label>
-            <label>
+            <label className="user-auth-label">
               Password 
+              <br />
               <input 
                 type="password"
                 value={this.state.password}

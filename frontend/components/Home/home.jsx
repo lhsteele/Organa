@@ -1,16 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
-class Home extends React.Component {
+const Home = ({ logoutUser }) => {
+  return (
+    <div>
+      <h1>Project Index</h1>
+      <button onClick={logoutUser}>Logout</button>
+    </div>
+  )
 
-
-
-  render() {
-    return (
-      <div>
-        <h1>Project Index</h1>
-      </div>
-    )
-  }
 }
 
-export default Home;
+
+export default Home

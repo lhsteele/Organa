@@ -5,7 +5,7 @@ import Modal from './Modal/modal';
 import Splash from './Splash/splash_container';
 import LoginFormContainer from './Auth/login_form_container';
 import SignupFormContainer from './Auth/signup_form_container';
-import Home from '../components/Home/home';
+import Home from '../components/Home/home_container';
 
 
 const App = () => (
