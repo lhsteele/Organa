@@ -66,7 +66,6 @@ class SessionForm extends React.Component {
             <label className="user-auth-label">
               Username 
               <br />
-              {/* &nbsp; */}
               <input
                 type="text"
                 value={this.state.username}

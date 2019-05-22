@@ -1,5 +1,4 @@
 import React from 'react';
-// import rebel_logo from "./rebel_logo.png"
 
 const Splash = ({ currentUser, openModal, logout }) => {
   
