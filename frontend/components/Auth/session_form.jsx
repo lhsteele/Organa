@@ -23,6 +23,7 @@ class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.formAction(user).then(this.props.closeModal)
       .then(() => this.props.history.push('/home'));
+    // isValidEmail = document.getElementById('email-input').checkValidity();
   }
 
   renderErrors() {
@@ -49,9 +50,9 @@ class SessionForm extends React.Component {
       h6 = ""
     } else {
       h3 = <h3>Start your free trial</h3>
-      h4 = <h4>Please use your work email address so we can connect you with your team in Asana.</h4>
+      h4 = <h4>Please use your work email address so we can connect you with your team at the Rebel base.</h4>
       button = "Try for free"
-      h6 = <h6>By signing up, I agree to the Asana Privacy Policy and Terms of Service</h6>
+      h6 = <h6>By signing up, I agree to the Organa Privacy Policy and Terms of Service</h6>
         
     }
     return (
@@ -65,8 +66,8 @@ class SessionForm extends React.Component {
           <div className="login-form">
             <label className="user-auth-label">
               Username 
-              {/* <br /> */}
-              &nbsp;
+              <br />
+              {/* &nbsp; */}
               <input
                 type="text"
                 value={this.state.username}
@@ -77,7 +78,7 @@ class SessionForm extends React.Component {
               Email Address 
               <br />
               <input 
-                type="text"
+                type="email"
                 value={this.state.email}
                 onChange={this.updateForm("email")}
                 className="login-input"/>
@@ -89,7 +90,8 @@ class SessionForm extends React.Component {
                 type="password"
                 value={this.state.password}
                 onChange={this.updateForm("password")}
-                className="login-input"/>
+                className="login-input"
+                required minlength="6"/>
             </label>
             <div>
               <input 

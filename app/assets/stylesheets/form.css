@@ -15,24 +15,22 @@
 }
 
 .user-auth-form h3 {
-  margin-top: 50px;
+  margin-bottom: 20px;
   font-size: -webkit-xxx-large;
 }
 
 .user-auth-form h4 {
-  /* margin-top: 100px; */
   font-size: large;
   width: 60%;
   margin: auto;
+  margin-bottom: 20px;
   color: rgb(133, 133, 133);
   display: flex;
   flex-direction: column;
-  margin: auto;
 }
 
 .login-form {
-  /* background-color: rgb(227, 227, 227); */
-  background-color: red;
+  background-color: rgb(227, 227, 227);
   height: 350px;
   width: 500px;
   border: 1px black;
@@ -45,31 +43,44 @@
 }
 
 .user-auth-label {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  color: rgb(108, 107, 107);
   font-size: large;
   text-align: left;
   padding: 0px 20px;
 }
 
 .login-input {
-  margin: auto;
-  margin-top: 10px;
+  /* margin: auto; */
+  margin: 10px auto;
   width: 450px;
   height: 35px;
   position: relative;
+  padding-left: 10px;
+  font-size: medium;
+  font-family: Nunito;
 }
 
 .user-auth-form-submit {
   width: 450px;
   height: 35px;
-  background-color: #ee5253;
+  background-color: #e66353;
   font-size: medium;
   color: white;
   border-radius: 5px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin: 20px;
 }
 
 .user-auth-form h6 {
   font-size: small;
-
+  color: rgb(133, 133, 133);
 }
+
+/* .login-input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+.login-input:focus:invalid {
+  box-shadow: none;
+} */

@@ -1,4 +1,5 @@
 import React from 'react';
+// import rebel_logo from "./rebel_logo.png"
 
 const Splash = ({ currentUser, openModal, logout }) => {
   
@@ -6,7 +7,9 @@ const Splash = ({ currentUser, openModal, logout }) => {
       <div className="splash-div">
         <nav className="splash-navbar">
           <div className="splash-logo">
-            <img className="logo" src="#" />
+            {/* <img className="logo" src={require("../../assets/images/rebel_logo.png")}/> */}
+            {/* <img className="logo" src="#"/> */}
+            <div className="logo"></div>
             <label className="organa">organa</label>
           </div>
           <div className="splashnav-buttons">
