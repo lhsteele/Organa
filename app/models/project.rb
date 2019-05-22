@@ -8,6 +8,7 @@
 #  owner_id    :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  archived    :boolean          default(FALSE)
 #
 
 # index on:
@@ -15,8 +16,12 @@
 class Project < ApplicationRecord
   validates :name, presence: true
   validates :owner_id, presence: true
+  validates :archived, inclusion: { in: [true, false] }
 
-  belongs_to :owner
+  belongs_to :owner,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: "User"
   has_many :lists
-  belongs_to :team
+  # belongs_to :team
 end
