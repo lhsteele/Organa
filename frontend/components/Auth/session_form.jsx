@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class SessionForm extends React.Component {
       email: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.flipModal = this.flipModal.bind(this);
   }
 
   updateForm(field) {
@@ -38,22 +40,34 @@ class SessionForm extends React.Component {
     );
   }
 
+  flipModal() {
+    this.props.formType = 'signup'
+    this.props.closeModal
+    this.props.openModal  
+  }
+
   render() {
     let h3
     let h4
     let button
+    let space
     let h6
     if (this.props.formType == 'login') {
       h3 = <h3>Log in</h3>
       h4 = "" 
       button = "Log in"
-      h6 = ""
+      space = <div></div>
+      // h6 = <div className="dha-signup-button" onClick={() => this.props.openModal('signup')}>Don't have an account? Sign Up</div>
+      h6 = <p className="dha-signup-button" onClick={() => this.props.openModal('signup')}>
+        Don't have an account? 
+        <span className="sign-up">  Sign Up</span>
+      </p>
     } else {
       h3 = <h3>Start your free trial</h3>
       h4 = <h4>Please use your work email address so we can connect you with your team at the Rebel base.</h4>
       button = "Try for free"
-      h6 = <h6>By signing up, I agree to the Organa Privacy Policy and Terms of Service</h6>
-        
+      space = ""
+      h6 = <h6>By signing up, I agree to the Organa Privacy Policy and Terms of Service</h6>   
     }
     return (
       <div className="user-auth-form">
@@ -91,16 +105,17 @@ class SessionForm extends React.Component {
                 className="login-input"
                 required minLength="6"/>
             </label>
-            <div>
+            
               <input 
                 className="user-auth-form-submit" 
                 type="submit"
                 value={button}/>
-            </div>
+            
             <div className="error-message">
               {this.renderErrors()}
             </div>
             <br/>
+            {space}
             {h6}
           </div>
         </form>
