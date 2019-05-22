@@ -77,10 +77,7 @@
   color: rgb(133, 133, 133);
 }
 
-/* .login-input:invalid {
-  box-shadow: 0 0 5px 1px red;
+.error-message {
+  font-size: small;
+  color: red
 }
-
-.login-input:focus:invalid {
-  box-shadow: none;
-} */

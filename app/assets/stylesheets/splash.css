@@ -19,7 +19,7 @@
 
 .logo {
   padding: 10px;
-  background-image: url("../images/rebel_logo.png");
+  background-image: image_url('rebel_logo.png');
   width: 40px;
   height: 40px;
 }
@@ -85,4 +85,13 @@ main {
   color: white;
   margin: auto;
   margin-top: 50px
+}
+
+.asana-splash {
+  margin: auto;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: auto;
 }

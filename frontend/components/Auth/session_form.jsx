@@ -62,7 +62,6 @@ class SessionForm extends React.Component {
           {h3} 
           <br/>
           {h4}
-          {this.renderErrors()}
           <div className="login-form">
             <label className="user-auth-label">
               Username 
@@ -91,13 +90,16 @@ class SessionForm extends React.Component {
                 value={this.state.password}
                 onChange={this.updateForm("password")}
                 className="login-input"
-                required minlength="6"/>
+                required minLength="6"/>
             </label>
             <div>
               <input 
                 className="user-auth-form-submit" 
                 type="submit"
                 value={button}/>
+            </div>
+            <div className="error-message">
+              {this.renderErrors()}
             </div>
             <br/>
             {h6}
