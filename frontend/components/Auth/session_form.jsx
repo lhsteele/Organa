@@ -49,12 +49,14 @@ class SessionForm extends React.Component {
   render() {
     let h3
     let h4
+    let names
     let button
     let h6
     if (this.props.formType == 'login') {
       h3 = <h3>Log in</h3>
       h4 = "" 
       button = "Log in"
+      names = ""
       h6 = <p className="dha-signup-button" onClick={() => this.props.openModal('signup')}>
         Don't have an account? 
         <span className="sign-up">  Sign Up</span>
@@ -62,6 +64,27 @@ class SessionForm extends React.Component {
     } else {
       h3 = <h3>Start your free trial</h3>
       h4 = <h4>Please use your work email address so we can connect you with your team at the Rebel base.</h4>
+      names = <div className="first-last-name-labels">
+        <label className="user-auth-label">
+          First Name
+                <br />
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.updateForm("username")}
+            className="login-input-name" />
+        </label>
+        <label className="user-auth-label">
+          Last Name
+                <br />
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.updateForm("username")}
+            className="login-input-name" />
+        </label>
+      </div>
+        
       button = "Try for free"
       h6 = <h6>By signing up, I agree to the Organa Privacy Policy and Terms of Service</h6>   
     }
@@ -73,15 +96,7 @@ class SessionForm extends React.Component {
           <br/>
           {h4}
           <div className="login-form">
-            <label className="user-auth-label">
-              Username 
-              <br />
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.updateForm("username")}
-                className="login-input" />
-              </label>
+            {names}
             <label className="user-auth-label">
               Email Address 
               <br />
@@ -110,10 +125,11 @@ class SessionForm extends React.Component {
             </div>
             <br/>
             {h6}
-            <div onClick={this.handleDemo}>
-              Demo as Leia
-            </div>          
           </div>
+          <div className="leia-demo" onClick={this.handleDemo}>
+            <img className="leia-profile-pic" src={window.leiaURL} />
+            <p className="leia-button">Demo as Leia</p>
+          </div>          
         </form>
       </div>
     )

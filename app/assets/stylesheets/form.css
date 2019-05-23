@@ -6,12 +6,18 @@
   margin: auto;
   font-family: Nunito;
   flex-direction: column;
+  /* align-content: center; */
+}
+
+.user-auth-box {
+  height: 700px;
+  width: 700px;
 }
 
 .close-x {
   display: flex;
   justify-content: flex-end;
-  padding: 35px;
+  padding: 35px 35px 0px 35px;
   cursor: pointer;
   font-size: x-large;
   color: rgb(191, 191, 191);
@@ -37,7 +43,7 @@
   height: 350px;
   width: 450px;
   border: 1px black;
-  margin-top: 50px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -60,6 +66,22 @@
   font-size: medium;
   font-family: Nunito;
   box-sizing: border-box;
+}
+
+.login-input-name {
+  margin: 10px auto;
+  width: 215px;
+  height: 35px;
+  position: relative;
+  padding-left: 10px;
+  font-size: medium;
+  font-family: Nunito;
+  box-sizing: border-box;
+}
+
+.first-last-name-labels {
+  display: flex;
+  justify-content: space-between;
 }
 
 .user-auth-form-submit {
@@ -89,4 +111,33 @@
 
 .sign-up {
   color: #796eff;
+}
+
+.leia-demo {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  color: rgb(133, 133, 133);
+  /* position: relative; */
+  height: 50px;
+  margin-top: 20px;
+  margin: auto;
+  width: 200px;
+}
+
+.leia-button {
+  /* position: absolute; */
+  /* top: 50%; */
+  /* transform: translate(0, -50%); */
+  margin: 0;
+  left: 285px;
+  height: 20px;
+}
+
+.leia-profile-pic {
+  /* position: absolute; */
+  height: 50px;
+  width: 50px;
+  left: 225px;
 }

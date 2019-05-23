@@ -9,13 +9,21 @@ const Home = ({ logoutUser }) => {
         <label className="home-label">Home</label>
         <div className="home-nav-buttons">
           <button>New</button>
-          <button></button>
+          <ul id="profile-dropdown" className="profile-dropdown hidden">
+            <li>
+              <ul className="profile-dropdown-projects"></ul>
+            </li>
+            <li>
+              <ul className="profile-dropdown-user">
+                <li className="profile-dropdown-logout" onClick={logoutUser}>Log Out</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </nav>
       <main>
        
       </main>
-      <button onClick={logoutUser}>Logout</button>
     </div>
   )
 
