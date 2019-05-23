@@ -7,11 +7,14 @@ import configureStore from './store/store'
 import * as SessionActions from './actions/session_actions'
 import * as ProjectActions from './actions/project_actions'
 
+
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
     const preloadedState = { 
-      session: { id: window.currentUser.id },
+      session: {
+        id: window.currentUser.id, first_name: window.currentUser.first_name,
+        last_name: window.currentUser.last_name  },
       entities: { users: {[window.currentUser.id]: window.currentUser} }
     };
     store = configureStore(preloadedState);
@@ -32,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.updateProject = ProjectActions.updateProject
   window.deleteProject = ProjectActions.deleteProject
   window.archiveProject = ProjectActions.archiveProject
+
   
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root)

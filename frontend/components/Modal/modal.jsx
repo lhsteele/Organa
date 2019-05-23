@@ -17,6 +17,9 @@ function modalAction ({ modal, closeModal }) {
     case 'signup':
       component = <SignupFormContainer />;
       break;
+    case 'profile':
+      component = <ProfileButtonContainer />;
+      break;
     default:
       return null;
   }
