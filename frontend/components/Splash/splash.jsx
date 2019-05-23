@@ -6,8 +6,8 @@ const Splash = ({ currentUser, openModal, logout }) => {
       <div className="splash-div">
         <nav className="splash-navbar">
           <div className="splash-logo">
-            <img className="logo" src={window.rebelURL}/>
-            <label className="organa">organa</label>
+            <img className="splash-logo-img" src={window.rebelURL}/>
+            <label className="splash-organa">organa</label>
           </div>
           <div className="splashnav-buttons">
             <button 

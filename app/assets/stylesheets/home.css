@@ -1,17 +1,76 @@
-/* #profile-dropdown {
+.homepage-main {
+  display: grid;
+  grid-template-columns: 20% auto;
+  font-family: Nunito;
+}
+
+.homepage-sidebar {
+  padding-top: 15px;
+  background-color: #151b26;
+}
+
+.sidebar-logo-group {
+  display: flex;
+  padding-left: 15px;
+  margin-top: 10px
+  display: flex;
+  align-items: center;
+}
+
+.home-logo-img {
+  height: 30px;
+  width: 30px;
+  padding-right: 5px;
+}
+
+.home-organa {
+  font-size: larger;
+  color: white;
+}
+
+.project-index {
+  padding-top: 25px;
+}
+
+.homepage-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.home-label {
+  padding-left: 15px;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.home-nav-buttons {
+  display: flex;
+  flex-direction: row;
+  padding-right: 15px;
+  justify-content: space-between;
+  width: 175px;
+}
+
+.new-button {
+  height: 35px;
+  width: 70px;
+  border-radius: 5px;
+  font-size: medium;
+  /* background-color: #e66353; */
+  background-image: linear-gradient(to top right, #e66353, #f9d254);
+  color: white;
+}
+
+#profile-dropdown {
   position: absolute;
-  top: 40px;
-  width: 200px;
+  width: 75px;
   right: 0px;
-  background-color: white;
-  border: 1px solid $light-gray;
   z-index: 1;
-  font-family: $sans-serif;
   font-size: 16px;
   padding: 10px;
-  color: $gray;
-  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
-} */
+}
 
 .profile-dropdown {
   position: relative;
