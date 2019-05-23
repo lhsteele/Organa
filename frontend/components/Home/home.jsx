@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 const Home = ({ logoutUser }) => {
   return (
@@ -17,11 +17,17 @@ const Home = ({ logoutUser }) => {
             <div className="home-nav-buttons">
               <button className="new-button">+ New</button>
               <div className="profile-dropdown">
-                <button className="profile-dropdown-button">LO</button>
-                <div className="profile-dropdown-content">
+                <button 
+                  className="profile-dropdown-button">
+                  LO
+                </button>
+                <div className="profile-hover-dropdown-content">
                   <label>
                     Leia Organa 
                   </label>
+                </div>
+                <div className="profile-click-dropdown-content">
+                  <button className="dropdown-logout-button" onClick={logoutUser}></button>
                 </div>
               </div>
             </div>
