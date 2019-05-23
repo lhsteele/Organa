@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../Auth/login_form_container';
 import SignupFormContainer from '../Auth/signup_form_container';
+import ProfileButtonModalContainer from '../Home/profile_button_modal_container';
 
 function modalAction ({ modal, closeModal }) {
   if (!modal) {
@@ -18,16 +19,28 @@ function modalAction ({ modal, closeModal }) {
       component = <SignupFormContainer />;
       break;
     case 'profile':
-      component = <ProfileButtonContainer />;
+      component = <ProfileButtonModalContainer />;
       break;
     default:
       return null;
   }
-  return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        {component}
+  let modalComponent;
+    if (modal === 'signup' || modal === 'login') {
+      modalComponent = <div className="modal-background" onClick={closeModal}>
+        < div className="modal-child" onClick={e => e.stopPropagation()} >
+          {component}
+        </div>
       </div>
+    } else {
+      modalComponent = <div className="profile-modal-background" onClick={closeModal}>
+        < div className="profile-modal-child" onClick={e => e.stopPropagation()} >
+          {component}
+        </div>
+      </div>
+    }
+  return (
+    <div>
+      {modalComponent}
     </div>
   )
 }
