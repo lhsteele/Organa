@@ -16,16 +16,14 @@ const Home = ({ logoutUser }) => {
             <label className="home-label">Home</label>
             <div className="home-nav-buttons">
               <button className="new-button">+ New</button>
-              <ul id="profile-dropdown" className="profile-dropdown hidden">
-                <li>
-                  <ul className="profile-dropdown-projects"></ul>
-                </li>
-                <li>
-                  <ul className="profile-dropdown-user">
-                    <li className="profile-dropdown-logout" onClick={logoutUser}>Log Out</li>
-                  </ul>
-                </li>
-              </ul>
+              <div className="profile-dropdown">
+                <button className="profile-dropdown-button">LO</button>
+                <div className="profile-dropdown-content">
+                  <label>
+                    Leia Organa 
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </main>
