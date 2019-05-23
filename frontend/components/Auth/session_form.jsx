@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      password: "", 
-      email: ""
-    };
+    this.state = props.userInfo;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
   }
@@ -21,6 +17,7 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.formAction(user).then(this.props.closeModal)
@@ -70,8 +67,8 @@ class SessionForm extends React.Component {
                 <br />
           <input
             type="text"
-            value={this.state.username}
-            onChange={this.updateForm("username")}
+            value={this.state.first_name}
+            onChange={this.updateForm("first_name")}
             className="login-input-name" />
         </label>
         <label className="user-auth-label">
@@ -79,8 +76,8 @@ class SessionForm extends React.Component {
                 <br />
           <input
             type="text"
-            value={this.state.username}
-            onChange={this.updateForm("username")}
+            value={this.state.last_name}
+            onChange={this.updateForm("last_name")}
             className="login-input-name" />
         </label>
       </div>
