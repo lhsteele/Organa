@@ -44,13 +44,9 @@
   width: 300px;
   height: 50px;
   text-align: left;
-  
+
 }
 
-.profile-and-logout {
-  /* display: flex;
-  justify-content: center; */
-}
 
 .profile-and-logout .logout-button {
   width: 300px;
