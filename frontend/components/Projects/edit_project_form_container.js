@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { requestProject, updateProject } from '../../actions/project_actions';
 import ProjectForm from './project_form';
-import { stat } from 'fs';
+
 
 class EditProjectForm extends React.Component {
   componentDidMount() {
@@ -28,7 +28,8 @@ class EditProjectForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   project: state.projects[ownProps.match.params.projectId], 
-  formType: "edit"
+  formType: "Update",
+  isHidden: false
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

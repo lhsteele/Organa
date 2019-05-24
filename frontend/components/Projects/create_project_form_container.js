@@ -4,7 +4,8 @@ import ProjectForm from './project_form';
 
 const mapStateToProps = state => ({
   project: { name: "", owner_id: null, description: "", archived: false },
-  formType: "create"
+  formType: "Create",
+  isHidden: true
 })
 
 const mapDispatchToProps = dispatch => ({

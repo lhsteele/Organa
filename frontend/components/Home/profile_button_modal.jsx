@@ -17,7 +17,6 @@ class ProfileButtonModal extends React.Component {
   render() {
     return (
       <div className="profile-modal">
-        {/* <div onClick={this.props.closeModal} className="profile-close-x">X</div> */}
         <ul className="profile-dropdown">
           <li>
             <ul className="current-project-subsection">
