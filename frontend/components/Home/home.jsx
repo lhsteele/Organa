@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import ProjectsIndexContainer from '../Projects/projects_index_container';
+import ProjectShowContainer from '../Projects/project_show_container';
 
 class Home extends React.Component {
   constructor(props) {

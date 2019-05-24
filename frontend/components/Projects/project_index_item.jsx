@@ -3,7 +3,11 @@ import React from 'react';
 const ProjectIndexItem = ({ project, deleteProject }) => (
   <li>
     <div>
-      <label>{project.name}</label>
+      {/* <button className="project-button" onClick={}> */}
+        <div className="project-square">
+          {project.name}
+        </div>
+      {/* </button> */}
     </div>
   </li>
 )
