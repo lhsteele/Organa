@@ -1,7 +1,12 @@
+.window {
+  height: 100vh;
+}
+
 .homepage-main {
   display: grid;
   grid-template-columns: 20% auto;
   font-family: Nunito;
+  height: 100%;
 }
 
 .homepage-sidebar {
@@ -28,15 +33,13 @@
   color: white;
 }
 
-.project-index {
-  padding-top: 25px;
-}
 
 .homepage-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  padding-top: 25px;
 }
 
 .home-label {
@@ -108,3 +111,38 @@
   z-index: 3;
 }
 
+.homepage-main .tasks-section {
+  height: 100px;
+  padding: 50px 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.homepage-main .recent-projects-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 50px;
+}
+
+.tasks-projects-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 60%;
+}
+
+.outer-tasks-projects-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tasks-section-label {
+  text-align: left;
+}
+
+.recent-projects-label {
+  text-align: left;
+}

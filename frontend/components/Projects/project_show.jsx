@@ -3,17 +3,15 @@ import { Link } from 'react-router-dom';
 
 class ProjectShow extends React.Component {
   componentDidMount() {
+    // this.props.requestProject(this.props.project.id)
     this.props.requestProject(this.props.match.params.projectId)
   }
 
   render () {
-    debugger
-    const { description, owner_id } = this.props.project 
-    // need to fetch owner by owner_id and show here 
-    // but before that will need to create user actions to fetch user
     return (
       <div>
-        {description}
+        THIS IS RENDERING THE SHOW
+        {this.props.project.description}
       </div>
     )
 

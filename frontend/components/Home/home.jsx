@@ -9,12 +9,10 @@ class Home extends React.Component {
   }
 
   render() {
-    // debugger
     const firstInitial = this.props.first_name[0]
     const lastInitial = this.props.last_name[0]
-    // const { openModal } = this.props.openModal
     return (
-      <div>
+      <div className="window">
         <div className="homepage-main">
           <div className="homepage-sidebar">
             <div className="sidebar-logo-group">
@@ -41,10 +39,10 @@ class Home extends React.Component {
                     </div>                
                   </div>
                 </div>
+              <div className="outer-tasks-projects-container">
+                <ProjectsIndexContainer />
+              </div>
             </main>
-        </div>
-        <div>
-          <ProjectsIndexContainer />
         </div>
      </div>
     )

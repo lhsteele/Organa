@@ -60,6 +60,19 @@ table {
 	border-spacing: 0;
 }
 
+.transparent-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
+
+}
+
+
+
+
 /* button reset */
 /* input[type="button"],
 button {

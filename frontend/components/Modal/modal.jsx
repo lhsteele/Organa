@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../Auth/login_form_container';
 import SignupFormContainer from '../Auth/signup_form_container';
 import ProfileButtonModalContainer from '../Home/profile_button_modal_container';
-import EditProjectFormContainer from '../Projects/edit_project_form_container';
 
 function modalAction ({ modal, closeModal }) {
   if (!modal) {
@@ -22,9 +21,6 @@ function modalAction ({ modal, closeModal }) {
     case 'profile':
       component = <ProfileButtonModalContainer />;
       break;
-    case 'update':
-      component = <EditProjectFormContainer />;
-      break;
     default:
       return null;
   }
@@ -35,19 +31,13 @@ function modalAction ({ modal, closeModal }) {
           {component}
         </div>
       </div>
-    } else if (modal === 'profile') {
+    } else {
       modalComponent = <div className="profile-modal-background" onClick={closeModal}>
         < div className="profile-modal-child" onClick={e => e.stopPropagation()} >
           {component}
         </div>
       </div>
-    } else {
-      modalComponent = <div className="update-proj-modal-background" onClick={closeModal}>
-        < div className="update-proj-modal-child" onClick={e => e.stopPropagation()} >
-          {component}
-        </div>
-      </div>
-    }
+    } 
   return (
     <div>
       {modalComponent}

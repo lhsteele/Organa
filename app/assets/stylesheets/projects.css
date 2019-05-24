@@ -1,0 +1,150 @@
+.project-item {
+  height: 175px;
+  width: 120px;
+  text-align: center;
+}
+
+.project-item .dropdown-menu {
+  position: absolute;
+  bottom: -300px;
+  height: 275px;
+  width: 500px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-family: Nunito;
+  text-align: left;
+}
+
+.project-item .project-menu {
+  position: relative;
+}
+
+.project-item .dynamic-project-name {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.project-item .text-input-label {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(108, 107, 107);
+    font-size: 12px;
+}
+
+.project-item .project-form-name {
+  margin-left: 10px;
+  height: 35px;
+  flex: 1;
+  border-radius: 3px;
+  border: 1px solid gray;
+  
+}
+
+.project-item .textarea-input-label {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(108, 107, 107);
+  font-size: 12px;
+}
+
+.project-item .project-form-description {
+  margin-left: 10px;
+  height: 50px;
+  flex: 1;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+.project-item .submit-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.project-item .update-form-submit-button {
+  width: 120px;
+  height: 40px;
+  background-color: #14aaf5;
+  border-radius: 5px;
+  font-family: Nunito;
+  justify-content: center;
+  display: flex;
+}
+
+.project-item .update-input {
+  border: none;
+  background-color: transparent;
+}
+
+.project-item .project-square {
+  height: 120px;
+  width: 120px;
+  background-color: #ff5263;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.recent-projects-index-ul {
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.project-name-label {
+  font-size: 12px;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.project-item .project-square-top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project-menu-dots {
+  width: 20px;
+  height: auto;
+  margin: 10px;
+}
+
+.hamburger-img {
+  width: 40px;
+  height: auto;
+  padding-top: 10px;
+}
+
+.new-project-item {
+  height: 175px;
+  width: 120px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.new-project-item .new-project-button {
+  height: 120px;
+  width: 120px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px;
+  border-style: dashed;
+  font-size: xx-large;
+  color: rgb(191, 191, 191);
+  cursor: pointer;
+}
+
+.new-project-item .new-project-label {
+  font-size: 12px;
+  font-weight: bolder;
+  margin-top: 10px;
+}
+

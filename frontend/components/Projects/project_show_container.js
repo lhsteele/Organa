@@ -3,7 +3,8 @@ import { requestProject } from '../../actions/project_actions';
 import ProjectShow from './project_show';
 
 const mapStateToProps = (state, ownProps) => ({
-  project: state.projects[ownProps.match.params.projectId]
+  // project: state.projects[ownProps.project.id]
+  project: state.projects[ownProps.match.params.projectId] || {}
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
