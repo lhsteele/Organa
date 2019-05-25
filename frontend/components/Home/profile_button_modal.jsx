@@ -20,8 +20,8 @@ class ProfileButtonModal extends React.Component {
         <ul className="profile-dropdown">
           <li>
             <ul className="current-project-subsection">
-              {/* retrieve current project name and put below */}
-              <li className="current-project-label">Current Project Name</li>
+              {/* retrieve current team name and put below */}
+              <li className="current-project-label">Team Name</li>
             </ul>
           </li>
           <li>

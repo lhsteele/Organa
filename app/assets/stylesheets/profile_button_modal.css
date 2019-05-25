@@ -18,9 +18,7 @@
   right: 15px;
   width: 300px;
   height: 100px;
-  border-radius: 3px;
   background-color: white;
-  border: 1px solid lightgray;
   box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
   border-image: linear-gradient(to right, #32c1ff 50%, #9287ff 100%) 1;
   border-top: 4px solid;
@@ -28,6 +26,7 @@
   flex-direction: column;
   font-family: Nunito;
   margin: auto;
+  box-sizing: border-box;
 }
 
 .profile-modal {
@@ -42,20 +41,24 @@
 
 .current-project-label {
   width: 300px;
-  height: 50px;
+  height: 30px;
   text-align: left;
-
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid rgb(215, 214, 214);
 }
 
 
 .profile-and-logout .logout-button {
   width: 300px;
-  height: 50px;
+  height: 30px;
   background-color: transparent;
   border: none;
   font-family: Nunito;
-  font-size: smaller;
+  font-size: 14px;
   text-align: left;
+  padding: 10px;
+  cursor: pointer;
 }
 
 

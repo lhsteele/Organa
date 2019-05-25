@@ -98,15 +98,17 @@
   height: 45px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   border-radius: 5px;
+  margin-top: 10px;
   padding-top: 10px;
-  margin-top: 40px;
   z-index: 1;
-  padding-right: 10px;
+  margin-right: 10px;
   align-items: center;
+  left: auto; 
+  right: 0;
 }
 
 
-.profile-dropdown:hover .profile-hover-dropdown-content {
+.hover-div:hover .profile-hover-dropdown-content {
   display: block;
   z-index: 3;
 }

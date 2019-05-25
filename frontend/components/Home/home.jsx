@@ -38,11 +38,11 @@ class Home extends React.Component {
           </div>
           <div className="new-button-dropdown">
             <ul className="new-button-ul">
-              <li>
+              <li key={1}>
                 <img className="checkbox" src={window.checkURL}/>
                 Task
               </li>
-              <li>
+              <li key={2}>
                 <img className="clipboard" src={window.clipboardURL}/>
                 <Link to="/projects/new"
                   className="new-button-dropdown-link">
@@ -98,7 +98,7 @@ class Home extends React.Component {
                       </button>
                       {modal}
                     </div>
-                    <div>
+                    <div className="hover-div">
                       <button 
                         className="profile-dropdown-button" 
                         onClick={() => this.props.openModal('profile')}>
