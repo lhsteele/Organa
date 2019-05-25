@@ -8,7 +8,9 @@ class ProjectIndexItem extends React.Component {
     super(props)
     this.state = {
       showModal: false,
-      showDetail: false
+      showDetail: false,
+      showModalMenu: false,
+      showTextArea: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -26,15 +28,36 @@ class ProjectIndexItem extends React.Component {
   }
 
   render() {
+    let modalMenu;
+    if (this.state.showModalMenu === true) {
+      modalMenu = (
+        <div>
+          <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="edit-dropdown">
+            <ul className="edit-dropdown-ul">
+              <li onClick={
+                () => this.setState({ showModal: true, showModalMenu: false })}>
+                Edit Name & Description...
+              </li>
+            </ul>
+          </div>
+        </div>
+      )
+    }
+
     let modal;
     if (this.state.showModal === true) {
       modal = (
         // this is a fragment
         <>
-          <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="edit-transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
           {/* make this a ul for the new project modal */}
-          <div className="dropdown-menu">
-            <label className="dynamic-project-name">Edit {this.props.project.name}</label>
+          <div className="edit-modal">
+            <div className="edit-modal-label">
+              <label className="dynamic-project-name">Edit 
+              <span className="edit-project-name"> {this.props.project.name}</span>
+              </label>
+            </div>
             <label className="text-input-label">
               Project Name
               <input
@@ -44,14 +67,12 @@ class ProjectIndexItem extends React.Component {
                 className="project-form-name"
               />
             </label>
-            <label className="textarea-input-label">
+            <label 
+              onClick={() => this.setState({ showTextArea: true })}
+              className="textarea-input-label">
               Description
-              <textarea
-                value={this.props.project.description}
-                onChange={this.updateForm("description")}
-                className="project-form-description">
-              </textarea>
             </label>
+            {textArea}
             <div className="submit-button-container">
               <div className="update-form-submit-button">
                 <input 
@@ -64,25 +85,35 @@ class ProjectIndexItem extends React.Component {
         </>
       )
     }
+    let textArea;
+    if (this.state.showTextArea === true) {
+      textArea = (
+        <>
+          <textarea
+            value={this.props.project.description}
+            onChange={this.updateForm("description")}
+            className="project-form-description">
+          </textarea>
+        </>
+      )
+    }
     if (this.state.showDetail === true) {
       return (
-        // <ProjectShowContainer 
-        //   project={this.props.project}
-        // />
         <Redirect push to={`/projects/${this.props.project.id}`} />
       )
     }
     return (
       <div className="project-item">
         {/* <button className="project-button" onClick={}> */}
-        <div className="project-square"
-          onClick={() => this.setState({ showDetail: true })}>
+        <div className="project-square">
+          {/* onClick={() => this.setState({ showDetail: true })}> */}
           <div className="project-square-top">
             <div className="project-menu">
               <img className="project-menu-dots"
                 src={window.dotsURL}
-                onClick={() => this.setState({ showModal: true })}
-                onMouseDown={e => e.stopPropagation()}/>
+                onClick={() => this.setState({ showModalMenu: true })}/>
+                <p onClick={this.stopPropagation}></p>
+              {modalMenu}
               {modal}
             </div> 
           </div>
