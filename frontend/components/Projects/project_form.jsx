@@ -28,27 +28,33 @@ class ProjectForm extends React.Component {
         <>
           <textarea
             onChange={this.updateForm("description")}
-            className="project-form-description">
+            className="new-project-form-description">
           </textarea>
         </>
       )
     } 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Add project details</label>
-          <label>Project Name</label>
+      <div className="new-project-form-container">
+        <form onSubmit={this.handleSubmit}
+          className="new-project-form">
+          <label className="new-project-label">Add project details</label>
+          <label className="new-project-name-label">Project Name</label>
           <input
             type="text"
             onChange={this.updateForm("name")}
-            className="project-form-name"
+            className="project-form-name-input"
           />
           <label
-            onClick={() => this.setState({ showTextArea: true })}>
+            onClick={() => this.setState({ showTextArea: true })}
+            className="new-project-description-toggle-label">
             Add a description
           </label>
           {textArea}
-          <input type="submit" value={`${this.props.formType} project`}/>
+          <input 
+            type="submit" 
+            value={`${this.props.formType} project`}
+            className="new-project-submit-button"
+          />
         </form>
       </div>
     )

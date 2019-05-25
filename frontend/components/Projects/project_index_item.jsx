@@ -79,11 +79,11 @@ class ProjectIndexItem extends React.Component {
           onClick={() => this.setState({ showDetail: true })}>
           <div className="project-square-top">
             <div className="project-menu">
-              <div onClick={() => this.setState({ showModal: true })}>
-                <img className="project-menu-dots"
-                  src={window.dotsURL}/>
-                {modal}
-              </div>
+              <img className="project-menu-dots"
+                src={window.dotsURL}
+                onClick={() => this.setState({ showModal: true })}
+                onMouseDown={e => e.stopPropagation()}/>
+              {modal}
             </div> 
           </div>
           <img className="hamburger-img" src={window.hamburgerURL}/>
