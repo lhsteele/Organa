@@ -1,0 +1,15 @@
+.window {
+  height: 100vh;
+}
+
+.show-page-main {
+  display: grid;
+  grid-template-columns: 15% auto;
+  font-family: Nunito;
+  height: 100%;
+}
+
+.project-show-main {
+  display: flex;
+  flex-direction: column;
+}

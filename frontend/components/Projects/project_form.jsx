@@ -5,7 +5,11 @@ class ProjectForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showTextArea: false
+      showTextArea: false,
+      name: "",
+      description: "",
+      owner_id: props.currentUserId,
+      archived: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -13,6 +17,7 @@ class ProjectForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitEvent(this.state)
+    this.props.history.push(`/home`)
   }
 
   updateForm(field) {

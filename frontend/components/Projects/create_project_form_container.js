@@ -5,7 +5,8 @@ import ProjectForm from './project_form';
 const mapStateToProps = state => ({
   project: { name: "", owner_id: null, description: "", archived: false },
   formType: "Create",
-  isHidden: true
+  isHidden: true,
+  currentUserId: state.session.id
 })
 
 const mapDispatchToProps = dispatch => ({
