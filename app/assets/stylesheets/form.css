@@ -127,16 +127,12 @@
 }
 
 .leia-button {
-  /* position: absolute; */
-  /* top: 50%; */
-  /* transform: translate(0, -50%); */
   margin: 0;
   left: 285px;
   height: 20px;
 }
 
 .leia-profile-pic {
-  /* position: absolute; */
   height: 50px;
   width: 50px;
   left: 225px;

@@ -2,6 +2,7 @@
   height: 175px;
   width: 120px;
   text-align: center;
+  margin: 20px;
 }
 
 .project-item .dropdown-menu {
@@ -93,10 +94,9 @@
 }
 
 .recent-projects-index-ul {
-  margin: 50px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 .project-name-label {
@@ -128,6 +128,7 @@
   text-align: center;
   text-decoration: none;
   color: black;
+  padding: 20px;
 }
 
 .new-project-item .new-project-button {

@@ -4,7 +4,7 @@
 
 .homepage-main {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 15% auto;
   font-family: Nunito;
   height: 100%;
 }
@@ -130,7 +130,6 @@
 .tasks-projects-container {
   display: flex;
   flex-direction: column;
-  text-align: left;
   width: 60%;
 }
 
@@ -141,8 +140,112 @@
 
 .tasks-section-label {
   text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(215, 214, 214);;
 }
 
 .recent-projects-label {
   text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(215, 214, 214);
+}
+
+.sidebar-menu {
+  padding-top: 20px;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  flex-direction: column;
+  border-bottom: .1px solid rgb(47, 47, 47);
+}
+
+.sidebar-menu-home {
+  height: 35px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.sidebar-menu-home .home-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar-menu-home .sidebar-home-img {
+  width: 25px;
+  height: auto;
+  padding: 10px;
+}
+
+.sidebar-placeholder-li {
+  height: 35px;
+  width: 100%;
+}
+
+.fav-reports-features-placeholder {
+  height:140px;
+  width: 100%;
+  border-bottom: .1px solid rgb(47, 47, 47);
+}
+
+.sidebar-team-section {
+  height: 35px;
+  width: 85%;
+  border-bottom: .1px solid rgb(47, 47, 47);
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.sidebar-team-link {  
+  text-decoration: none;
+  color: white;
+  text-align: left;
+  font-size: 14px;
+}
+
+.homepage-sidebar .sidebar-projects-list-link {
+  text-decoration: none;
+  color: white;
+}
+
+.new-button-dropdown {
+  width: 120px;
+  height: auto;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 4px;
+  box-shadow: 0 5px 20px 0 rgba(21,27,38,.08);
+  box-sizing: border-box;
+  flex-grow: 1;
+  position: relative;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.new-button-ul li {
+  margin: 10px;
+  font-size: 13px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.checkbox {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.clipboard {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.new-button-dropdown-link {
+  text-decoration: none;
+  color: black;
 }
