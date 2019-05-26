@@ -5,7 +5,8 @@ import { openModal, closeModal } from '../../actions/modal_actions'
 
 const mapStateToProps = state => ({
   projects: Object.values(state.projects),
-  modalType: 'update'
+  modalType: 'update',
+  currentUserId: state.session.id
 });
 
 const mapDispatchToProps = dispatch => ({

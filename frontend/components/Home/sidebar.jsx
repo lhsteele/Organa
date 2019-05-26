@@ -5,15 +5,26 @@ import { withRouter, Link } from 'react-router-dom';
 class Sidebar extends React.Component {
   constructor(props) {
     super(props) 
-
+    this.state = {
+      userProjects: []
+    }
   }
 
   componentDidMount() {
     this.props.requestProjects();
+    this.fetchUsersProjects();
+  }
+
+  fetchUsersProjects() {
+    this.props.projects.forEach(project => {
+      if (project.owner_id === this.props.currentUserId) {
+        this.state.userProjects.push(project)
+      }
+    })
   }
 
   render() {
-    const projects = this.props.projects.map(project => {
+    const projects = this.state.userProjects.map(project => {
       return (
         <Link to={`/projects/${project.id}`}
           className="sidebar-projects-list-link"

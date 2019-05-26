@@ -9,12 +9,22 @@ class ProjectsIndex extends React.Component {
     super(props)
     this.state = {
       showTasks: false, 
-      showProjects: false
+      showProjects: false,
+      userProjects: []
     }
   }
 
   componentDidMount() {
     this.props.requestProjects();
+    this.fetchUsersProjects();
+  }
+
+  fetchUsersProjects() {
+    this.props.projects.forEach(project => {
+      if (project.owner_id === this.props.currentUserId) {
+        this.state.userProjects.push(project)
+      }
+    })
   }
 
   render() {
@@ -22,7 +32,7 @@ class ProjectsIndex extends React.Component {
     let projects;
     if (this.state.showProjects === true) {
       projects = (
-        this.props.projects.map(project => {
+        this.state.userProjects.map(project => {
           return (
             <ProjectIndexItem
               key={project.id}
