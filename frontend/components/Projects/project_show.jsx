@@ -126,6 +126,29 @@ class ProjectShow extends React.Component {
       )
     }
 
+    let deleteModal;
+    if (this.state.showDeleteModal === true) {
+      deleteModal = (
+        <div>
+          <label className="delete-modal-header">Delete the {this.props.project.name} project?</label>
+          <label className="delete-modal-subHeader">
+            This will delete the project and any unassigned tasks that are 
+            only in this project.
+          </label>
+          <button 
+            className="cancel-delete-button"
+            onClick={() => this.setState({ deleteModal: false })}>
+            Cancel
+          </button>
+          <button
+            className="delete-button"
+            onClick={() => this.props.deleteProject(this.props.project.id)}>
+            Delete {this.props.project.name}
+          </button>
+        </div>
+      )
+    }
+
     return (
       <div className="window">
         <div className="show-page-main">
@@ -144,6 +167,7 @@ class ProjectShow extends React.Component {
                   {menu}
                   {editModal}
                   {archive}
+                  {deleteModal}
               </div>
               <NavBarContainer />
             </div>
