@@ -42,14 +42,13 @@ class NavBar extends React.Component {
 
     return (
       <div className="homepage-nav">
-        <label className="home-label">Home</label>
         <div className="home-nav-buttons">
           <div className="home-nav-new-button">
             <button
               className="new-button"
               onClick={() => this.setState({ showNewButtonModal: true })}>
               + New
-                    </button>
+            </button>
             {modal}
           </div>
           <div className="hover-div">

@@ -63,32 +63,10 @@ class Home extends React.Component {
         <div className="homepage-main">
           <SidebarContainer />
           <main className="project-index">
-            <NavBarContainer />
-            {/* <div className="homepage-nav">
+            <div className="home-nav-header">
               <label className="home-label">Home</label>
-                <div className="home-nav-buttons">
-                  <div className="home-nav-new-button">
-                    <button 
-                      className="new-button"
-                      onClick={() => this.setState({ showNewButtonModal: true })}>
-                      + New
-                    </button>
-                    {modal}
-                  </div>
-                  <div className="hover-div">
-                    <button 
-                      className="profile-dropdown-button" 
-                      onClick={() => this.props.openModal('profile')}>
-                      {firstInitial}{lastInitial}
-                    </button>
-                    <div className="profile-hover-dropdown-content">
-                      <label>
-                        {this.props.first_name} {this.props.last_name}
-                      </label>
-                    </div>
-                  </div>                
-                </div>
-              </div> */}
+              < NavBarContainer />
+            </div>
             <div className="outer-tasks-projects-container">
               <ProjectsIndexContainer />
             </div>

@@ -15,8 +15,25 @@ class ProjectShow extends React.Component {
         <div className="show-page-main">
           <SidebarContainer />
           <div className="project-show-main">
-            <NavBarContainer />
-            {this.props.project.description}
+            <div className="show-nav-header">
+              <div className="show-nav-left">
+                <img className="project-color-tile " src={window.tileURL} />
+                <label className="show-label">{this.props.project.name}</label>
+                <img className="grey-dots" src={window.dotsGreyURL}/>
+              </div>
+              <NavBarContainer />
+            </div>
+            <div className="tasks-main">
+              <div className="tasks-index">
+                <ul>
+                  Task list goes here
+                </ul>
+              </div>
+              <div className="project-description">
+                <label className="description">Description</label>
+                <p className="description-input">{this.props.project.description}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -33,6 +33,13 @@
   color: white;
 }
 
+.home-nav-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 25px;
+}
 
 .homepage-nav {
   display: flex;
