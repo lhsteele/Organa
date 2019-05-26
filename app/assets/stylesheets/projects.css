@@ -88,13 +88,25 @@
 .project-item .project-form-name {
   margin-left: 10px;
   height: 35px;
-  flex: 1;
+  width: 385px;
   border-radius: 3px;
   border: 1px solid gray;
   padding-left: 10px;
   font-size: 12px;
   font-family: Nunito;
   box-sizing: border-box;
+}
+
+.edit-project-form-description {
+  margin-left: 10px;
+  height: 50px;
+  width: 385px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  padding-left: 10px;
+  font-size: 12px;
+  font-family: Nunito;
+  box-sizing: border-box
 }
 
 .project-item .textarea-input-label {

@@ -45,14 +45,27 @@ class ProjectIndexItem extends React.Component {
       )
     }
 
+    let textArea;
+    if (this.state.showTextArea === true) {
+      textArea = (
+        <>
+          <textarea
+            value={this.props.project.description}
+            onChange={this.updateForm("description")}
+            className="edit-project-form-description">
+          </textarea>
+        </>
+      )
+    }
+
     let modal;
     if (this.state.showModal === true) {
       modal = (
         // this is a fragment
         <>
           <div className="edit-transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
-          {/* make this a ul for the new project modal */}
-          <div className="edit-modal">
+          <form className="edit-modal"
+            onSubmit={this.handleSubmit}>
             <div className="edit-modal-label">
               <label className="dynamic-project-name">Edit 
               <span className="edit-project-name"> {this.props.project.name}</span>
@@ -71,8 +84,8 @@ class ProjectIndexItem extends React.Component {
               onClick={() => this.setState({ showTextArea: true })}
               className="textarea-input-label">
               Description
+              {textArea}
             </label>
-            {textArea}
             <div className="submit-button-container">
               <div className="update-form-submit-button">
                 <input 
@@ -81,22 +94,11 @@ class ProjectIndexItem extends React.Component {
                   className="update-input"/>
               </div>
             </div>
-          </div>
+          </form>
         </>
       )
     }
-    let textArea;
-    if (this.state.showTextArea === true) {
-      textArea = (
-        <>
-          <textarea
-            value={this.props.project.description}
-            onChange={this.updateForm("description")}
-            className="project-form-description">
-          </textarea>
-        </>
-      )
-    }
+
     if (this.state.showDetail === true) {
       return (
         <Redirect push to={`/projects/${this.props.project.id}`} />
