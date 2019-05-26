@@ -18,6 +18,9 @@ class ProjectsIndex extends React.Component {
     this.props.requestProjects();
     this.fetchUsersProjects();
   }
+  
+  componentDidUpdate() {
+  }
 
   fetchUsersProjects() {
     this.props.projects.forEach(project => {

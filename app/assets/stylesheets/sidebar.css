@@ -84,3 +84,16 @@
   display: flex;
   margin: auto;
 }
+
+.sidebar-projects-list-items {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.sidebar-proj-list-tile {
+  width: 8px;
+  height: auto;
+  border-radius: 1px;
+  padding-right: 10px;
+}

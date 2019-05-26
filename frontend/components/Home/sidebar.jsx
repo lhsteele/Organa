@@ -14,6 +14,9 @@ class Sidebar extends React.Component {
     this.props.requestProjects();
     this.fetchUsersProjects();
   }
+  
+  componentDidUpdate() {
+  }
 
   fetchUsersProjects() {
     this.props.projects.forEach(project => {
@@ -26,11 +29,14 @@ class Sidebar extends React.Component {
   render() {
     const projects = this.state.userProjects.map(project => {
       return (
-        <Link to={`/projects/${project.id}`}
-          className="sidebar-projects-list-link"
-          key={project.id}>
-          {project.name}
-        </Link>
+        <div className="sidebar-projects-list-items">
+          <img className="sidebar-proj-list-tile" src={window.tileURL}/>
+          <Link to={`/projects/${project.id}`}
+            className="sidebar-projects-list-link"
+            key={project.id}>
+            {project.name}
+          </Link>
+        </div>
       )
     })
 
