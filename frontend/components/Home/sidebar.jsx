@@ -52,8 +52,10 @@ class Sidebar extends React.Component {
         <ul className="side-bar-projects-ul">
           {projects}
         </ul>
+        <div className="img-container">
+          <img className="sidebar-img" src={window.sidebarImgURL}/>
+        </div>
       </div>
-
     )
   }
 
