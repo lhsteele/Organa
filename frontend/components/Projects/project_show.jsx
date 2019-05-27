@@ -16,6 +16,7 @@ class ProjectShow extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleClearModal = this.handleClearModal.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,16 @@ class ProjectShow extends React.Component {
     this.props.history.push(`/home`)
   }
 
+  handleClearModal(e) {
+    e.stopPropagation();
+    this.setState({ 
+      menuModal: false,
+      showEditModal: false,
+      showDeleteModal: false,
+      showArchive: false
+    })
+  }
+
   updateForm(field) {
     return (e) => {
       this.setState({ [field]: e.target.value })
@@ -46,7 +57,7 @@ class ProjectShow extends React.Component {
     if (this.state.menuModal === true) {
       menu = (
         <div>
-          <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="transparent-modal" onClick={this.handleClearModal}></div>
           <div className="showpage-edit-dropdown">
             <ul className="edit-dropdown-ul">
               <li 
@@ -88,7 +99,7 @@ class ProjectShow extends React.Component {
       editModal = (
         // this is a fragment
         <>
-          <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="transparent-modal" onClick={this.handleClearModal}></div>
           <form className="edit-modal"
             onSubmit={this.handleSubmit}>
             <div className="edit-modal-label">
@@ -141,7 +152,7 @@ class ProjectShow extends React.Component {
     if (this.state.showDeleteModal === true) {
       deleteModal = (
         <>
-          <div className="grey-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="grey-modal" onClick={this.handleClearModal}></div>
           <div className="delete-modal">
             <label className="delete-modal-header">Delete the "{this.props.project.name}" project?</label>
             <label className="delete-modal-subHeader">
@@ -151,7 +162,7 @@ class ProjectShow extends React.Component {
             <div className="delete-modal-buttons">
               <button 
                 className="cancel-delete-button"
-                onClick={() => this.setState({ deleteModal: false })}>
+                onClick={this.handleClearModal}>
                 Cancel
               </button>
               <button
