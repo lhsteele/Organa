@@ -86,7 +86,7 @@ class ProjectShow extends React.Component {
       textArea = (
         <>
           <textarea
-            value={this.props.project.description}
+            defaultValue={this.props.project.description}
             onChange={this.updateForm("description")}
             className="edit-project-form-description">
           </textarea>
@@ -106,12 +106,13 @@ class ProjectShow extends React.Component {
               <label className="dynamic-project-name">Edit
               <span className="edit-project-name"> {this.props.project.name}</span>
               </label>
+              <div onClick={this.handleClearModal} className="edit-close-x">X</div>
             </div>
             <label className="text-input-label">
               Project Name
               <input
                 type="text"
-                value={this.props.project.name}
+                defaultValue={this.props.project.name}
                 onChange={this.updateForm("name")}
                 className="project-form-name"
               />
@@ -126,7 +127,7 @@ class ProjectShow extends React.Component {
               <div className="update-form-submit-button">
                 <input
                   type="submit"
-                  value="Update Project"
+                  defaultValue="Update Project"
                   className="update-input" />
               </div>
             </div>

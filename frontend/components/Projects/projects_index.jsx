@@ -43,6 +43,7 @@ class ProjectsIndex extends React.Component {
               deleteProject={this.props.deleteProject}
               openModal={this.props.openModal}
               modalType={this.props.modalType}
+              updateProject={this.props.updateProject}
             />
           )
         })

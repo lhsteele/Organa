@@ -17,11 +17,13 @@ class ProjectIndexItem extends React.Component {
     this.handleMenuChildClick = this.handleMenuChildClick.bind(this);
     this.handleEditDropdownChildClick = this.handleEditDropdownChildClick.bind(this);
     this.handleClearModalsClick = this.handleClearModalsClick.bind(this);
+    this.handleFormClick = this.handleFormClick.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitEvent(this.state)
+    e.stopPropagation();
+    this.props.updateProject(this.props.project.id)
   }
 
   updateForm(field) {
@@ -50,6 +52,10 @@ class ProjectIndexItem extends React.Component {
     })
   }
 
+  handleFormClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
     let modalMenu;
     if (this.state.showModalMenu === true) {
@@ -72,7 +78,7 @@ class ProjectIndexItem extends React.Component {
       textArea = (
         <>
           <textarea
-            value={this.props.project.description}
+            defaultValue={this.props.project.description}
             onChange={this.updateForm("description")}
             className="edit-project-form-description">
           </textarea>
@@ -87,17 +93,19 @@ class ProjectIndexItem extends React.Component {
         <>
           <div className="grey-modal" onClick={this.handleClearModalsClick}></div>
           <form className="edit-modal"
+            onClick={this.handleFormClick}
             onSubmit={this.handleSubmit}>
             <div className="edit-modal-label">
               <label className="dynamic-project-name">Edit 
               <span className="edit-project-name"> {this.props.project.name}</span>
               </label>
+              <div onClick={this.handleClearModalsClick} className="edit-close-x">X</div>
             </div>
             <label className="text-input-label">
               Project Name
               <input
                 type="text"
-                value={this.props.project.name}
+                defaultValue={this.props.project.name}
                 onChange={this.updateForm("name")}
                 className="project-form-name"
               />
@@ -112,7 +120,7 @@ class ProjectIndexItem extends React.Component {
               <div className="update-form-submit-button">
                 <input 
                   type="submit" 
-                  value="Update Project" 
+                  defaultValue="Update Project" 
                   className="update-input"/>
               </div>
             </div>
