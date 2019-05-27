@@ -14,7 +14,8 @@ class ProjectIndexItem extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
-    this.handleChildClick = this.handleChildClick.bind(this);
+    this.handleMenuChildClick = this.handleMenuChildClick.bind(this);
+    this.handleEditDropdownChildClick = this.handleEditDropdownChildClick.bind(this);
   }
 
   handleSubmit(e) {
@@ -28,9 +29,14 @@ class ProjectIndexItem extends React.Component {
     }
   }
 
-  handleChildClick(e) {
+  handleMenuChildClick(e) {
     e.stopPropagation();
     this.setState({ showModalMenu: true })
+  }
+
+  handleEditDropdownChildClick(e) {
+    e.stopPropagation();
+    this.setState({ showModal: true, showModalMenu: false})
   }
 
   render() {
@@ -41,8 +47,7 @@ class ProjectIndexItem extends React.Component {
           <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
           <div className="edit-dropdown">
             <ul className="edit-dropdown-ul">
-              <li onClick={
-                () => this.setState({ showModal: true, showModalMenu: false })}>
+              <li onClick={this.handleEditDropdownChildClick}>
                 Edit Name & Description...
               </li>
             </ul>
@@ -69,7 +74,7 @@ class ProjectIndexItem extends React.Component {
       modal = (
         // this is a fragment
         <>
-          <div className="edit-transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="grey-modal" onClick={() => this.setState({ showModal: false })}></div>
           <form className="edit-modal"
             onSubmit={this.handleSubmit}>
             <div className="edit-modal-label">
@@ -114,12 +119,11 @@ class ProjectIndexItem extends React.Component {
       <div className="project-item">
         <div className="project-square"
           onClick={() => this.setState({ showDetail: true })}>
-          <p onClick={this.stopPropagation}></p>
           <div className="project-square-top">
             <div className="project-menu">
               <img className="project-menu-dots"
                 src={window.dotsURL}
-                onClick={this.handleChildClick}/>
+                onClick={this.handleMenuChildClick}/>
               {modalMenu}
               {modal}
             </div> 

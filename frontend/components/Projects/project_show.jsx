@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import SidebarContainer from '../Home/sidebar_container';
 import NavBarContainer from '../Home/navbar_container';
 
@@ -14,6 +15,7 @@ class ProjectShow extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +26,13 @@ class ProjectShow extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitEvent(this.state)
+  }
+
+  handleDelete(e) {
+    this.props.deleteProject(this.props.project.id)
+    this.setState({ showDeleteModal: false })
+    // return <Redirect push to={"/home"} />
+    this.props.history.push(`/home`)
   }
 
   updateForm(field) {
@@ -119,8 +128,10 @@ class ProjectShow extends React.Component {
     if (this.state.showArchive === true) {
       archive = (
         <div className="show-archive-bar">
-          <img className="archive-box-img" src=""/>
-          <label className="archive-msg">This project is archived.</label>
+          <div className="show-archive-left">
+            <img className="archive-box-img" src={window.fileBoxURL}/>
+            <label className="archive-msg">This project is archived.</label>
+          </div>
           <button className="archive-restore-button">Restore</button>
         </div>
       )
@@ -129,23 +140,28 @@ class ProjectShow extends React.Component {
     let deleteModal;
     if (this.state.showDeleteModal === true) {
       deleteModal = (
-        <div>
-          <label className="delete-modal-header">Delete the {this.props.project.name} project?</label>
-          <label className="delete-modal-subHeader">
-            This will delete the project and any unassigned tasks that are 
-            only in this project.
-          </label>
-          <button 
-            className="cancel-delete-button"
-            onClick={() => this.setState({ deleteModal: false })}>
-            Cancel
-          </button>
-          <button
-            className="delete-button"
-            onClick={() => this.props.deleteProject(this.props.project.id)}>
-            Delete {this.props.project.name}
-          </button>
-        </div>
+        <>
+          <div className="grey-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="delete-modal">
+            <label className="delete-modal-header">Delete the "{this.props.project.name}" project?</label>
+            <label className="delete-modal-subHeader">
+              This will delete the project and any unassigned tasks that are 
+              only in this project.
+            </label>
+            <div className="delete-modal-buttons">
+              <button 
+                className="cancel-delete-button"
+                onClick={() => this.setState({ deleteModal: false })}>
+                Cancel
+              </button>
+              <button
+                className="delete-button"
+                onClick={this.handleDelete}>
+                Delete {this.props.project.name}
+              </button>
+            </div>
+          </div>
+        </>
       )
     }
 
@@ -166,11 +182,11 @@ class ProjectShow extends React.Component {
                   onClick={() => this.setState({ menuModal: true })} />
                   {menu}
                   {editModal}
-                  {archive}
                   {deleteModal}
               </div>
               <NavBarContainer />
             </div>
+            {archive}
             <div className="tasks-main">
               <div className="tasks-index">
                 <ul>

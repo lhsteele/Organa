@@ -88,7 +88,6 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
 }
 
 
@@ -134,3 +133,89 @@
   text-align: left;
 }
 
+.show-archive-bar {
+  height: 35px;
+  background-color: #eaf8ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show-archive-left {
+  align-items: center;
+  display: flex;
+}
+
+.archive-msg {
+  padding-left: 15px;
+  font-size: 13px;
+  color: grey;
+}
+
+.archive-box-img {
+  width: 20px;
+  height: auto;
+  padding-left: 15px;
+}
+
+.archive-restore-button {
+  margin-right: 15px;
+  height: 25px;
+  background-color: white;
+  border-radius: 5px;
+  color: grey;
+}
+
+.delete-modal {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* bottom: -300px; */
+  height: 160px;
+  width: 550px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-family: Nunito;
+  text-align: left;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.delete-modal-header {
+  font-size: 20px;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid #dedede
+}
+
+.delete-modal-subHeader {
+  padding: 20px;
+  font-size: 14px;
+}
+
+.delete-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.delete-button {
+  height: 40px;
+  margin-left: 10px;
+  min-width: 100px;
+  background-color: #ff5263;
+  color: white;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.cancel-delete-button {
+  height: 40px;
+  width: 70px;
+  background-color: white;
+  color: grey;
+  border-radius: 5px;
+  font-size: 13px;
+}

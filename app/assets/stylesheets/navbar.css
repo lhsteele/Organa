@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: baseline;
   padding-top: 25px;
+  z-index: 0;
 }
 
 .home-label {
@@ -58,7 +59,7 @@
   position: relative;
   margin-top: 10px;
   text-align: left;
-  z-index: 10;
+  z-index: 3;
 }
 
 .new-button-ul li {
