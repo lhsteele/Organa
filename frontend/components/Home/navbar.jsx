@@ -7,6 +7,12 @@ class NavBar extends React.Component {
     this.state = {
       showNewButtonModal: false
     }
+    this.handleClearModal = this.handleClearModal.bind(this);
+  }
+
+  handleClearModal(e) {
+    e.stopPropagation();
+    this.setState({ showNewButtonModal: false })
   }
 
   render() {
@@ -19,7 +25,7 @@ class NavBar extends React.Component {
         <>
           <div
             className="transparent-modal"
-            onClick={() => this.setState({ showModal: false })}>
+            onClick={this.handleClearModal}>
           </div>
           <div className="new-button-dropdown">
             <ul className="new-button-ul">
