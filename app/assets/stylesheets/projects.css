@@ -1,3 +1,13 @@
+.project-index-transparent-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
 .project-item {
   height: 175px;
   width: 120px;
@@ -7,7 +17,10 @@
 
 .project-item .edit-modal {
   position: absolute;
-  bottom: -300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* bottom: -300px; */
   height: 350px;
   width: 550px;
   border: 1px solid gray;

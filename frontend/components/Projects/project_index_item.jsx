@@ -14,6 +14,7 @@ class ProjectIndexItem extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
+    this.handleChildClick = this.handleChildClick.bind(this);
   }
 
   handleSubmit(e) {
@@ -25,6 +26,11 @@ class ProjectIndexItem extends React.Component {
     return (e) => {
       this.setState({ [field]: e.target.value })
     }
+  }
+
+  handleChildClick(e) {
+    e.stopPropagation();
+    this.setState({ showModalMenu: true })
   }
 
   render() {
@@ -106,15 +112,14 @@ class ProjectIndexItem extends React.Component {
     }
     return (
       <div className="project-item">
-        {/* <button className="project-button" onClick={}> */}
-        <div className="project-square">
-          {/* onClick={() => this.setState({ showDetail: true })}> */}
+        <div className="project-square"
+          onClick={() => this.setState({ showDetail: true })}>
+          <p onClick={this.stopPropagation}></p>
           <div className="project-square-top">
             <div className="project-menu">
               <img className="project-menu-dots"
                 src={window.dotsURL}
-                onClick={() => this.setState({ showModalMenu: true })}/>
-                <p onClick={this.stopPropagation}></p>
+                onClick={this.handleChildClick}/>
               {modalMenu}
               {modal}
             </div> 

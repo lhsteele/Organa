@@ -38,7 +38,7 @@ class ProjectShow extends React.Component {
       menu = (
         <div>
           <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
-          <div className="edit-dropdown">
+          <div className="showpage-edit-dropdown">
             <ul className="edit-dropdown-ul">
               <li 
                 key={1}
@@ -79,7 +79,7 @@ class ProjectShow extends React.Component {
       editModal = (
         // this is a fragment
         <>
-          <div className="edit-transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
           <form className="edit-modal"
             onSubmit={this.handleSubmit}>
             <div className="edit-modal-label">
