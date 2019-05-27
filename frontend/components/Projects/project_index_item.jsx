@@ -16,6 +16,7 @@ class ProjectIndexItem extends React.Component {
     this.updateForm = this.updateForm.bind(this);
     this.handleMenuChildClick = this.handleMenuChildClick.bind(this);
     this.handleEditDropdownChildClick = this.handleEditDropdownChildClick.bind(this);
+    this.handleClearModalsClick = this.handleClearModalsClick.bind(this);
   }
 
   handleSubmit(e) {
@@ -39,12 +40,22 @@ class ProjectIndexItem extends React.Component {
     this.setState({ showModal: true, showModalMenu: false})
   }
 
+  handleClearModalsClick(e) {
+    e.stopPropagation();
+    this.setState({
+      showModal: false,
+      showDetail: false,
+      showModalMenu: false,
+      showTextArea: false
+    })
+  }
+
   render() {
     let modalMenu;
     if (this.state.showModalMenu === true) {
       modalMenu = (
         <div>
-          <div className="transparent-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="transparent-modal" onClick={this.handleClearModalsClick}></div>
           <div className="edit-dropdown">
             <ul className="edit-dropdown-ul">
               <li onClick={this.handleEditDropdownChildClick}>
@@ -74,7 +85,7 @@ class ProjectIndexItem extends React.Component {
       modal = (
         // this is a fragment
         <>
-          <div className="grey-modal" onClick={() => this.setState({ showModal: false })}></div>
+          <div className="grey-modal" onClick={this.handleClearModalsClick}></div>
           <form className="edit-modal"
             onSubmit={this.handleSubmit}>
             <div className="edit-modal-label">
