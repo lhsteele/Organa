@@ -58,6 +58,7 @@ class ProjectsIndex extends React.Component {
         <div className="recent-projects-container">
           <div className="recent-projects-label-group">
             <img src={window.arrowURL}
+              className="recent-projects-dropdown-arrow"
               onClick={() => this.setState({ showProjects: true })} />
             <label className="recent-projects-label">
               Recent Projects

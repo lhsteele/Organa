@@ -188,6 +188,10 @@
   cursor: pointer;
 }
 
+.recent-projects-dropdown-arrow {
+  cursor: pointer;
+}
+
 .recent-projects-index-ul {
   margin-top: 50px;
   display: flex;

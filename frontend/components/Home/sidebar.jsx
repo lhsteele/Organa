@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import SidebarIndexItem from './sidebar_index_item';
 
 
 class Sidebar extends React.Component {
@@ -28,14 +29,17 @@ class Sidebar extends React.Component {
   render() {
     const projects = this.state.userProjects.map(project => {
       return (
-        <div className="sidebar-projects-list-items">
-          <img className="sidebar-proj-list-tile" src={window.tileURL}/>
-          <Link to={`/projects/${project.id}`}
-            className="sidebar-projects-list-link"
-            key={project.id}>
-            {project.name}
-          </Link>
-        </div>
+        <SidebarIndexItem 
+          key={project.id}
+          project={project}
+        />
+        // <div className="sidebar-projects-list-items" key={project.id}>
+        //   <img className="sidebar-proj-list-tile" src={window.tileURL}/>
+        //   <Link to={`/projects/${project.id}`}
+        //     className="sidebar-projects-list-link">
+        //     {project.name}
+        //   </Link>
+        // </div>
       )
     })
 
