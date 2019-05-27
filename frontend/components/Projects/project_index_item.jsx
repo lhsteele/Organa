@@ -23,12 +23,12 @@ class ProjectIndexItem extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-    this.props.updateProject(this.props.project.id)
+    this.props.updateProject(this.state)
   }
 
   updateForm(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value })
+      this.setState({ field: e.target.value })
     }
   }
 
@@ -78,7 +78,8 @@ class ProjectIndexItem extends React.Component {
       textArea = (
         <>
           <textarea
-            defaultValue={this.props.project.description}
+            value={this.props.project.description}
+            id="description"
             onChange={this.updateForm("description")}
             className="edit-project-form-description">
           </textarea>
@@ -105,7 +106,8 @@ class ProjectIndexItem extends React.Component {
               Project Name
               <input
                 type="text"
-                defaultValue={this.props.project.name}
+                id="name"
+                value={this.props.project.name}
                 onChange={this.updateForm("name")}
                 className="project-form-name"
               />
@@ -116,11 +118,13 @@ class ProjectIndexItem extends React.Component {
               Description
               {textArea}
             </label>
+            <input type="hidden" value={this.props.project.owner_id} name="owner_id"/>
+            <input type="hidden" value={this.props.project.archived} name="archived"/>
             <div className="submit-button-container">
               <div className="update-form-submit-button">
                 <input 
                   type="submit" 
-                  defaultValue="Update Project" 
+                  value="Update Project" 
                   className="update-input"/>
               </div>
             </div>

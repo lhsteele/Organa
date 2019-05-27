@@ -13,9 +13,9 @@ class Home extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.props.requestProjects();
-  }
+  // componentDidMount() {
+  //   this.props.requestProjects();
+  // }
 
   render() {
     const firstInitial = this.props.first_name[0]

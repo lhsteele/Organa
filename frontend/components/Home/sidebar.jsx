@@ -11,19 +11,18 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestProjects();
-    this.fetchUsersProjects();
-  }
-  
-  componentDidUpdate() {
+    this.props.requestProjects()
+      .then(() => (this.fetchUsersProjects()));
   }
 
   fetchUsersProjects() {
+    let projects = [];
     this.props.projects.forEach(project => {
       if (project.owner_id === this.props.currentUserId) {
-        this.state.userProjects.push(project)
+        projects.push(project)
       }
     })
+    this.setState({userProjects: projects})
   }
 
   render() {

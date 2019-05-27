@@ -11,7 +11,14 @@ class ProjectShow extends React.Component {
       menuModal: false,
       showEditModal: false,
       showDeleteModal: false,
-      showArchive: false
+      showArchive: false,
+      project: props.project || {
+        id: props.project.id,
+        name: "",
+        description: "", 
+        owner_id: props.currentUserId,
+        archived: false
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -26,13 +33,13 @@ class ProjectShow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitEvent(this.state)
+    // this.props.updateProject(this.state)
+    this.props.updateProject(this.state.project)
   }
 
   handleDelete(e) {
     this.props.deleteProject(this.props.project.id)
     this.setState({ showDeleteModal: false })
-    // return <Redirect push to={"/home"} />
     this.props.history.push(`/home`)
   }
 
@@ -48,7 +55,10 @@ class ProjectShow extends React.Component {
 
   updateForm(field) {
     return (e) => {
-      this.setState({ [field]: e.target.value })
+      // this.setState({ [field]: e.target.value })
+      this.setState({project: 
+        { [field]: e.target.value,
+        id: this.props.project.id}})
     }
   }
 
@@ -123,6 +133,8 @@ class ProjectShow extends React.Component {
               Description
               {textArea}
             </label>
+            <input type="hidden" value={this.props.project.owner_id} name="owner_id" />
+            <input type="hidden" value={this.props.project.archived} name="archived" />
             <div className="submit-button-container">
               <div className="update-form-submit-button">
                 <input

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestProjects, deleteProject, updateProject } from '../../actions/project_actions';
+import { requestProjects, deleteProject, updateProject, requestProject } from '../../actions/project_actions';
 import Projects from './projects_index';
 import { openModal, closeModal } from '../../actions/modal_actions'
 
@@ -15,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
   deleteProject: projectId => dispatch(deleteProject(projectId)),
   openModal: modalType => dispatch(openModal(modalType)),
   closeModal: () => dispatch(closeModal()),
-  updateProject: project => dispatch(updateProject(project))
+  updateProject: project => dispatch(updateProject(project)), 
+  requestProject: project => dispatch(requestProject())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects)
