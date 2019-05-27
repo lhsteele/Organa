@@ -11,18 +11,27 @@ class ProjectShow extends React.Component {
       menuModal: false,
       showEditModal: false,
       showDeleteModal: false,
-      showArchive: false
+      showArchive: false,
+      archived: this.props.project.archived || false 
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClearModal = this.handleClearModal.bind(this);
     this.handleArchive = this.handleArchive.bind(this);
+    this.handleRestore = this.handleRestore.bind(this);
+    this.checkArchived = this.checkArchived.bind(this);
   }
 
   componentDidMount() {
     this.props.requestProject(this.props.match.params.projectId)
+    this.checkArchived();
   }
+  
+  // componentDidUpdate() {
+  //   this.checkArchived();
+  // }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -37,13 +46,19 @@ class ProjectShow extends React.Component {
   }
 
   handleArchive(e) {
-    // this.setState({project:
-    //   {
-    //     archived: true
-    //   }
-    // })
-    // debugger
+    this.setState({ showArchive: true, menuModal: false }),
     this.props.archiveProject(this.props.project.id)
+  }
+
+  handleRestore(e) {
+    this.setState({ showArchive: false, menuModal: false })
+    this.props.archiveProject(this.props.project.id)
+  }
+
+  checkArchived() {
+    if (this.state.archived === true) {
+      this.setState({ showArchive: true })
+    }
   }
 
   handleClearModal(e) {
@@ -79,7 +94,7 @@ class ProjectShow extends React.Component {
               </li>
               <li
                 key={2}
-                onClick={() => this.setState({ showArchive: true, menuModal: false}),
+                onClick={() => this.setState({ showArchive: true, menuModal: false, archived: true }),
                 this.handleArchive}>
                 Archive Project
               </li>
@@ -153,7 +168,7 @@ class ProjectShow extends React.Component {
 
     let archive;
     if (this.state.showArchive === true) {
-      {this.handleArchive}
+      // {this.handleArchive}
       archive = (
         <div className="show-archive-bar">
           <div className="show-archive-left">
@@ -162,7 +177,8 @@ class ProjectShow extends React.Component {
           </div>
           <button 
             className="archive-restore-button"
-            onClick={() => this.setState({archived: false})}>
+            onClick={() => this.setState({ showArchive: false, menuModal: false }),
+            this.handleRestore}>
             Restore
           </button>
         </div>

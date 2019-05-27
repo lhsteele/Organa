@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => ({
   // project: state.projects[ownProps.project.id]
   project: state.projects[ownProps.match.params.projectId] || {},
   currentUserId: state.session.id
+  
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -25,7 +25,7 @@ class Sidebar extends React.Component {
   fetchUsersProjects() {
     let projects = [];
     Object.values(this.props.projects).forEach(project => {
-      if (project.owner_id === this.props.currentUserId) {
+      if (project.owner_id === this.props.currentUserId && project.archived === false ) {
         projects.push(project)
       }
     })
@@ -39,13 +39,6 @@ class Sidebar extends React.Component {
           key={project.id}
           project={project}
         />
-        // <div className="sidebar-projects-list-items" key={project.id}>
-        //   <img className="sidebar-proj-list-tile" src={window.tileURL}/>
-        //   <Link to={`/projects/${project.id}`}
-        //     className="sidebar-projects-list-link">
-        //     {project.name}
-        //   </Link>
-        // </div>
       )
     })
 
