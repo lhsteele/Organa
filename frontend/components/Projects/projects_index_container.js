@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { requestProjects, deleteProject, updateProject, requestProject } from '../../actions/project_actions';
 import Projects from './projects_index';
-import { openModal, closeModal } from '../../actions/modal_actions'
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
-  projects: Object.values(state.projects),
+  projects: state.projects,
   modalType: 'update',
-  currentUserId: state.session.id, 
-  project: {}
+  currentUserId: state.session.id
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
   requestProject: project => dispatch(requestProject())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Projects)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Projects))

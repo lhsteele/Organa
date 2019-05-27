@@ -29,8 +29,11 @@ class Api::ProjectsController < ApplicationController
 
   def archive
     @project = Project.find(params[:id])
-    @project.toggle!(:archived)
-    render :archive
+    if @project.toggle!(:archived)
+      render :archive
+    else
+      render json: @project.errors.full_messages, status: 422
+    end
   end
 
   def destroy

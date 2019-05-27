@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import ProjectShowContainer from './project_show_container'
 
@@ -10,7 +10,11 @@ class ProjectIndexItem extends React.Component {
       showModal: false,
       showDetail: false,
       showModalMenu: false,
-      showTextArea: false
+      showTextArea: false,
+      project: {
+        name: this.props.project.name,
+        description: this.props.project.description
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -21,14 +25,20 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleSubmit(e) {
+    // debugger
     e.preventDefault();
-    e.stopPropagation();
-    this.props.updateProject(this.state)
+    this.props.updateProject(this.state.project)
+      .then(() => this.setState({ showModal: false }))
   }
 
   updateForm(field) {
     return (e) => {
-      this.setState({ field: e.target.value })
+      this.setState({ project:
+        {
+          [field]: e.target.value,
+          id: this.props.project.id
+        }
+      })
     }
   }
 
@@ -78,7 +88,7 @@ class ProjectIndexItem extends React.Component {
       textArea = (
         <>
           <textarea
-            value={this.props.project.description}
+            value={this.state.project.description}
             id="description"
             onChange={this.updateForm("description")}
             className="edit-project-form-description">
@@ -107,7 +117,7 @@ class ProjectIndexItem extends React.Component {
               <input
                 type="text"
                 id="name"
-                value={this.props.project.name}
+                value={this.state.project.name}
                 onChange={this.updateForm("name")}
                 className="project-form-name"
               />
@@ -118,8 +128,8 @@ class ProjectIndexItem extends React.Component {
               Description
               {textArea}
             </label>
-            <input type="hidden" value={this.props.project.owner_id} name="owner_id"/>
-            <input type="hidden" value={this.props.project.archived} name="archived"/>
+            {/* <input type="hidden" value={this.props.project.owner_id} name="owner_id"/>
+            <input type="hidden" value={this.props.project.archived} name="archived"/> */}
             <div className="submit-button-container">
               <div className="update-form-submit-button">
                 <input 
@@ -154,10 +164,10 @@ class ProjectIndexItem extends React.Component {
           <img className="hamburger-img" src={window.hamburgerURL}/>
         </div>
         
-        <label className="project-name-label">{this.props.project.name}</label>
+        <label className="project-name-label">{this.state.project.name}</label>
       </div>
     )
   }
 }
 
-export default ProjectIndexItem;
+export default withRouter(ProjectIndexItem);

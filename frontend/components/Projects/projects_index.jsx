@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
 
+
 class ProjectsIndex extends React.Component {
   constructor(props) {
     super(props)
@@ -19,9 +20,13 @@ class ProjectsIndex extends React.Component {
       .then(() => (this.fetchUsersProjects()));
   }
 
+  componentDidUpdate(prevProps) {
+    
+  }
+
   fetchUsersProjects() {
     let projects = [];
-    this.props.projects.forEach(project => {
+    Object.values(this.props.projects).forEach(project => {
       if (project.owner_id === this.props.currentUserId) {
         projects.push(project)
       }

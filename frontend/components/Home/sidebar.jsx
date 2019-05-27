@@ -16,9 +16,15 @@ class Sidebar extends React.Component {
       .then(() => (this.fetchUsersProjects()));
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.projects !== this.props.projects) {
+      this.fetchUsersProjects();
+    }
+  }
+
   fetchUsersProjects() {
     let projects = [];
-    this.props.projects.forEach(project => {
+    Object.values(this.props.projects).forEach(project => {
       if (project.owner_id === this.props.currentUserId) {
         projects.push(project)
       }

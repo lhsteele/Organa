@@ -5,6 +5,7 @@ import { Redirect } from 'react-router';
 class SidebarIndexItem extends React.Component {
   constructor(props) {
     super(props)
+    
   }
 
   render() {

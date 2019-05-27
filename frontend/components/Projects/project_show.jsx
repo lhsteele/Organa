@@ -11,36 +11,39 @@ class ProjectShow extends React.Component {
       menuModal: false,
       showEditModal: false,
       showDeleteModal: false,
-      showArchive: false,
-      project: props.project || {
-        id: props.project.id,
-        name: "",
-        description: "", 
-        owner_id: props.currentUserId,
-        archived: false
-      }
+      showArchive: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleClearModal = this.handleClearModal.bind(this);
+    this.handleArchive = this.handleArchive.bind(this);
   }
 
   componentDidMount() {
-    // this.props.requestProject(this.props.project.id)
     this.props.requestProject(this.props.match.params.projectId)
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.updateProject(this.state)
     this.props.updateProject(this.state.project)
+      .then(() => this.props.history.push('/home'))
   }
 
   handleDelete(e) {
     this.props.deleteProject(this.props.project.id)
     this.setState({ showDeleteModal: false })
     this.props.history.push(`/home`)
+  }
+
+  handleArchive(e) {
+    // this.setState({project:
+    //   {
+    //     archived: true
+    //   }
+    // })
+    // debugger
+    this.props.archiveProject(this.props.project.id)
   }
 
   handleClearModal(e) {
@@ -55,7 +58,6 @@ class ProjectShow extends React.Component {
 
   updateForm(field) {
     return (e) => {
-      // this.setState({ [field]: e.target.value })
       this.setState({project: 
         { [field]: e.target.value,
         id: this.props.project.id}})
@@ -77,7 +79,8 @@ class ProjectShow extends React.Component {
               </li>
               <li
                 key={2}
-                onClick={() => this.setState({ showArchive: true, menuModal: false })}>
+                onClick={() => this.setState({ showArchive: true, menuModal: false}),
+                this.handleArchive}>
                 Archive Project
               </li>
               <li
@@ -133,8 +136,8 @@ class ProjectShow extends React.Component {
               Description
               {textArea}
             </label>
-            <input type="hidden" value={this.props.project.owner_id} name="owner_id" />
-            <input type="hidden" value={this.props.project.archived} name="archived" />
+            {/* <input type="hidden" value={this.props.project.owner_id} name="owner_id" />
+            <input type="hidden" value={this.props.project.archived} name="archived" /> */}
             <div className="submit-button-container">
               <div className="update-form-submit-button">
                 <input
@@ -150,13 +153,18 @@ class ProjectShow extends React.Component {
 
     let archive;
     if (this.state.showArchive === true) {
+      {this.handleArchive}
       archive = (
         <div className="show-archive-bar">
           <div className="show-archive-left">
             <img className="archive-box-img" src={window.fileBoxURL}/>
             <label className="archive-msg">This project is archived.</label>
           </div>
-          <button className="archive-restore-button">Restore</button>
+          <button 
+            className="archive-restore-button"
+            onClick={() => this.setState({archived: false})}>
+            Restore
+          </button>
         </div>
       )
     }
