@@ -4,11 +4,11 @@ export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 export const REMOVE_TASK = "REMOVE_TASK";
 
-export const requestTasks = list => dispatch => {
-  return TasksApiUtil.fetchTasks(list).then(tasks => dispatch({
+export const requestTasks = listId => dispatch => {
+  return TasksApiUtil.fetchTasks(listId).then(tasks => {dispatch({
     type: RECEIVE_TASKS, 
     tasks
-  }))
+  })})
 }
 
 export const requestTask = taskId => dispatch => {

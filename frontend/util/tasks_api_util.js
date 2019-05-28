@@ -1,7 +1,7 @@
-export const fetchTasks = list => (
+export const fetchTasks = listId => (
   $.ajax({
     method: "GET", 
-    url: `api/lists/${task.list_id}/tasks`
+    url: `api/lists/${listId}/tasks`
   })
 )
 

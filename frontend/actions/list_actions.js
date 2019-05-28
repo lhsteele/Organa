@@ -5,11 +5,15 @@ export const RECEIVE_LIST = "RECEIVE_LIST";
 export const REMOVE_LIST = "REMOVE_LIST";
 
 export const requestLists = project => dispatch => {
-  return ListsApiUtil.fetchLists(project).then(lists => dispatch({
-    type: RECEIVE_LISTS, 
-    lists
-  }))
+  return ListsApiUtil.fetchLists(project).then(lists => {
+    dispatch({
+      type: RECEIVE_LISTS, 
+      lists
+    })
+  return lists  
+  })
 }
+
 
 export const requestList = listId => dispatch => {
   return ListsApiUtil.fetchList(listId).then(list => dispatch({

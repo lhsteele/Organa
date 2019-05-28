@@ -4,9 +4,17 @@ import {
   REMOVE_PROJECT, 
   RECEIVE_PROJECT_ARCHIVED
 } from '../actions/project_actions';
+import {
+  RECEIVE_LISTS,
+  RECEIVE_LIST,
+  REMOVE_LIST
+} from '../actions/list_actions';
+
 
 const projectsReducer = (state={}, action) => {
   Object.freeze(state);
+  let newState;
+  let lists;
   switch(action.type) {
     case RECEIVE_PROJECTS:
       return action.projects 
@@ -17,9 +25,35 @@ const projectsReducer = (state={}, action) => {
       updatedProject.archived = true;
       return Object.assign({}, state, {[action.projectId]:updatedProject})
     case REMOVE_PROJECT:
-      let newState = Object.assign({}, state);
+      newState = Object.assign({}, state);
       delete newState[action.projectId];
       return newState;
+    case RECEIVE_LISTS:
+      newState = Object.assign({}, state);
+      Object.values(action.lists).forEach(list => {
+        if (newState[list.project_id].listIds) {
+          newState[list.project_id].listIds.push(list.id)
+        } else {
+          newState[list.project_id].listIds = [list.id]
+        }
+      })
+      return newState
+      case RECEIVE_LIST: 
+        list = action.list;
+        newState = Object.assign({}, state);
+        if (newState[list.project_id].listIds) {
+          newState[list.project_id].listIds.push(list.id)
+        } else {
+          newState[list.project_id].listIds = [list.id]
+        }
+        return newState
+    case REMOVE_LIST:
+        list = action.list;
+        newState = Object.assign({}, state);
+        newState[list.project_id].listIds = newState[list.project_id].listIds.filter(
+          (id) => id !== action.list.id
+        )
+        return newState;
     default: 
       return state;
   }
