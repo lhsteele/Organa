@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import SidebarContainer from '../Home/sidebar_container';
 import NavBarContainer from '../Home/navbar_container';
-import ListShow from '../Lists/list_show';
+import ListShowContainer from '../Lists/list_show_container';
 
 class ProjectShow extends React.Component {
   constructor(props) {
@@ -239,7 +239,7 @@ class ProjectShow extends React.Component {
             {archive}
             <div className="tasks-main">
               <div className="tasks-index">
-                <ListShow project={this.props.project}/>
+                {/* <ListShowContainer project={this.props.project}/> */}
               </div>
               <div className="project-description">
                 <label className="description">Description</label>
