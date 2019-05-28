@@ -10,7 +10,6 @@ import {
 } from '../actions/task_actions';
 
 
-
 const listsReducer = (state={}, action) => {
   Object.freeze(state);
   let newState;

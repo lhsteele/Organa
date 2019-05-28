@@ -278,7 +278,15 @@ class ProjectShow extends React.Component {
             {archive}
             <div className="tasks-main">
               <div className="tasks-index">
+<<<<<<< HEAD
                 {/* <ListShowContainer project={this.props.project}/> */}
+=======
+                {this.props.project ? (
+                  <ListListShowContainer 
+                    projectId={this.props.match.params.projectId}
+                    project={this.props.project}/>
+                ) : null } 
+>>>>>>> a3b1aed... Tasks showing on List Show page
               </div>
               <div className="project-description">
                 <label className="description">Description</label>

@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   first_name: state.session.first_name,
   last_name: state.session.last_name,
   modalType: 'profile',
-  projects: state.projects,
+  projects: state.entities.projects,
   currentUserId: state.session.id
 });
 

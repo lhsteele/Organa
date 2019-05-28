@@ -5,7 +5,7 @@ import Projects from './projects_index';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
-  projects: state.projects,
+  projects: state.entities.projects,
   modalType: 'update',
   currentUserId: state.session.id
 });

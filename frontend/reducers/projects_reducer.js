@@ -9,7 +9,7 @@ import {
   RECEIVE_LIST,
   REMOVE_LIST
 } from '../actions/list_actions';
-
+import { merge } from 'lodash';
 
 const projectsReducer = (state={}, action) => {
   Object.freeze(state);
@@ -17,7 +17,7 @@ const projectsReducer = (state={}, action) => {
   let lists;
   switch(action.type) {
     case RECEIVE_PROJECTS:
-      return action.projects 
+      return merge({}, state, action.projects) 
     case RECEIVE_PROJECT:
       return Object.assign({}, state, {[action.project.id]: action.project})
     case RECEIVE_PROJECT_ARCHIVED: 

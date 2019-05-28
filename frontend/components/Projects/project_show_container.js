@@ -5,7 +5,7 @@ import ProjectShow from './project_show';
 
 const mapStateToProps = (state, ownProps) => ({
   // project: state.projects[ownProps.project.id]
-  project: state.projects[ownProps.match.params.projectId] || {},
+  project: state.entities.projects[ownProps.match.params.projectId] || {},
   currentUserId: state.session.id
 });
 

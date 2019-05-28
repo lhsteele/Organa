@@ -1,7 +1,7 @@
-export const fetchLists = project => (
+export const fetchLists = projectId => (
   $.ajax({
     method: "GET", 
-    url: `api/projects/${project.id}/lists`
+    url: `api/projects/${projectId}/lists`
   })
 )
 
