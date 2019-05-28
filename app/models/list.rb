@@ -3,7 +3,7 @@
 # Table name: lists
 #
 #  id          :bigint           not null, primary key
-#  name        :string           not null
+#  name        :string
 #  description :string
 #  project_id  :integer          not null
 #  created_at  :datetime         not null
@@ -13,7 +13,6 @@
 # index on:
 # project_id
 class List < ApplicationRecord
-  validates :name, presence: true
   validates :project_id, presence: true
 
   belongs_to :project
