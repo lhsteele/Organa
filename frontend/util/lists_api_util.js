@@ -20,7 +20,7 @@ export const createList = list => (
   })
 )
 
-export const updateList = list (
+export const updateList = list => (
   $.ajax({
     method: "PATCH", 
     url: `api/lists/${list.id}`, 

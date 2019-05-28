@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import SidebarContainer from '../Home/sidebar_container';
 import NavBarContainer from '../Home/navbar_container';
+import ListShow from '../Lists/list_show';
 
 class ProjectShow extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class ProjectShow extends React.Component {
       showEditModal: false,
       showDeleteModal: false,
       showArchive: false,
-      archived: this.props.project.archived || false 
+      archived: this.props.project.archived || false
+      // list: this.props.requestList(this.props.project.id)
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -237,9 +239,7 @@ class ProjectShow extends React.Component {
             {archive}
             <div className="tasks-main">
               <div className="tasks-index">
-                <ul>
-                  Task list goes here
-                </ul>
+                <ListShow project={this.props.project}/>
               </div>
               <div className="project-description">
                 <label className="description">Description</label>
