@@ -6,7 +6,7 @@ import CreateTaskFormContainer from '../Tasks/create_task_form_container';
 import ProjectDescriptionContainer from '../Projects/project_description_container';
 
 function TaskModal({ editTaskUI, showDesc, closeElement, project }) {
-  let component = <ProjectDescriptionContainer project={project}/>
+  let component;
   if (editTaskUI === "new") {
     component = <CreateTaskFormContainer formType="new"/>
   } else if (editTaskUI === null) {

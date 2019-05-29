@@ -39,7 +39,7 @@ class ListShow extends React.Component {
         <div className="tasks-index">
           <div className="tasks-index-nav">
             <button className="add-task-button"
-              onClick={() => this.props.openTaskForm('new')}> 
+              onClick={() => this.props.openTaskForm('Test')}> 
               Add Task
             </button>
           </div>
