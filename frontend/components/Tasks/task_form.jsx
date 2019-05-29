@@ -8,6 +8,7 @@ class TaskForm extends React.Component {
     super(props)
     this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleX = this.handleX.bind(this)
   }
 
   handleSubmit(e) {
@@ -20,22 +21,35 @@ class TaskForm extends React.Component {
     }
   }
 
+  handleX(e) {
+    e.stopPropagation();
+    if (this.props.formType === 'new') {
+      this.props.createTask(this.state.list_id)
+        .then(this.props.closeElement)
+    } else {
+      this.props.updateTask(this.state)
+        .then(this.props.closeElement)
+    }
+  }
+
   render() {
     return (
       <form className="task-form">
         <div className="task-edit-nav">
-          <button className="complete-button">
-            <img src={window.onlyCheckURL} className="only-check-img"/>
+          <button className="complete-button"
+            onClick={() => this.props.deleteTask(this.state.id)}>
+            <img 
+              src={window.onlyCheckURL} 
+              className="only-check-img"/>
             Mark Complete
           </button>
-          <div onClick={this.props.closeElement} className="task-close-x">X</div>
+          <div onClick={this.handleX} className="task-close-x">X</div>
         </div>
-        {/* <label className="task-form-project-label">Project Name here</label> */}
         <div className='task-form-body'>
           <input 
             className="task-form-name-input"
             type="text"
-            value={this.state.name}
+            defaultValue={this.state.name}
             onChange={this.updateForm("task_name")}/>
           <div className="task-form-description">
             <img className="task-form-doc-img" src={window.documentURL}/>

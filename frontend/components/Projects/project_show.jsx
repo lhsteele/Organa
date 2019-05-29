@@ -289,7 +289,7 @@ class ProjectShow extends React.Component {
                 <p className="description-input">{this.props.project.description}</p>
               </div>
             <div className="tasks">
-              {this.props.project ? (
+              {this.props.project.id ? (
                 <ListShowContainer 
                   projectId={this.props.match.params.projectId}
                   project={this.props.project}/>

@@ -5,7 +5,13 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showNewButtonModal: false
+      showNewButtonModal: false,
+      newTaskModal: false, 
+      task: {
+        task_name: "",
+        complete: false, 
+        list_id: props.listId
+      }
     }
     this.handleClearModal = this.handleClearModal.bind(this);
   }
@@ -13,6 +19,17 @@ class NavBar extends React.Component {
   handleClearModal(e) {
     e.stopPropagation();
     this.setState({ showNewButtonModal: false })
+  }
+
+  handleSubmit(e) {
+    e.stopPropagation();
+    this.props.createTask(this.state)
+  }
+
+  updateForm(field) {
+    return (e) => {
+      this.setState({ task: { [field]: e.target.value } })
+    }
   }
 
   render() {
@@ -29,7 +46,8 @@ class NavBar extends React.Component {
           </div>
           <div className="new-button-dropdown">
             <ul className="new-button-ul">
-              <li key={1}>
+              <li key={1}
+                onClick={() => this.setState({ newTaskModal: true })}>
                 <img className="checkbox" src={window.checkURL} />
                 Task
               </li>
@@ -43,6 +61,42 @@ class NavBar extends React.Component {
             </ul>
           </div>
         </>
+      )
+    }
+
+    let newTaskModal;
+    if (this.state.newTaskModal === true) {
+      newTaskModal = (
+        <div className="new-task-modal">
+          <div className="new-task-modal-nav">
+            <div onClick={() => this.setState({ newTaskModal: false})} className="new-task-close-x">X</div>
+          </div>
+          <form onSubmit={this.handleSubmit}
+            className="nav-bar-new-task-form">
+            <input 
+              type="text"
+              placeholder="Task Name"
+              onChange={this.updateForm("task_name")}
+              className="new-task-name-input" />
+            <div className="new-task-form-labels">
+              <label className="new-task-for">For</label>
+              <label>
+                <div className="new-task-initials">{firstInitial}{lastInitial}</div>
+                {this.props.first_name}{this.props.last_name}
+              </label>
+              <label>in</label>
+              <button>Project</button>
+            </div>
+            <input 
+              type="text"
+              className=""
+              placeholder="Description"/>
+            <input 
+              type="submit"
+              value="Create Task"
+              onClick={this.handleSubmit}/>
+          </form>
+        </div>
       )
     }
 
@@ -70,6 +124,7 @@ class NavBar extends React.Component {
             </div>
           </div>
         </div>
+        {newTaskModal}
       </div>
     )
   }

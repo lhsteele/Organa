@@ -13,7 +13,6 @@ class ListShow extends React.Component {
       projectDescription: true,
       task: {}
     }
-    this.showEditTaskForm = this.showEditTaskForm.bind(this)
   }
 
   componentDidMount() {
@@ -24,17 +23,6 @@ class ListShow extends React.Component {
         )
       })
   }
-
-  showEditTaskForm(e) {
-    e.stopPropagation();
-    this.setState({ editTaskForm: true, projectDescription: false })
-  }
-
-  clearEditTaskForm(e) {
-    e.stopPropagation();
-    this.setState({ editTaskForm: false, projectDescription: true })
-  }
-
 
   render() {
     let tasks = this.props.tasks.map(task => {
@@ -50,8 +38,8 @@ class ListShow extends React.Component {
       <div className="tasks-main">
         <div className="tasks-index">
           <div className="tasks-index-nav">
-            <button className="add-task-button">
-              {/* onClick={this.props.createTask(params.list_id)}>  */}
+            <button className="add-task-button"
+              onClick={() => this.props.openTaskForm('new')}> 
               Add Task
             </button>
           </div>

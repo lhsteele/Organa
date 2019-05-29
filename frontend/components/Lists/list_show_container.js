@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   requestTasks: listId => dispatch(requestTasks(listId)),
   deleteTask: taskId => dispatch(deleteTask(taskId)),
   createTask: task => dispatch(createTask(task)),
-  openTaskForm: taskId => dispatch(openTaskForm(taskId)), 
+  openTaskForm: () => dispatch(openTaskForm('new')), 
   closeElement: () => dispatch(closeElement()),
   openDescription: taskId => dispatch(openDescription(taskId))
 })

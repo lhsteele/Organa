@@ -33,6 +33,7 @@ export const updateTask = task => dispatch => {
 }
 
 export const deleteTask = taskId => dispatch => {
+  debugger
   return TasksApiUtil.deleteTask(taskId).then(task => dispatch({
     type: REMOVE_TASK,
     task

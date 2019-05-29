@@ -68,6 +68,7 @@
   text-align: center;
   align-items: center;
   display: flex;
+  cursor: pointer;
 }
 
 .checkbox {
@@ -85,4 +86,64 @@
 .new-button-dropdown-link {
   text-decoration: none;
   color: black;
+}
+
+.new-task-modal {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  transform: translate(0%, 0%);
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 450px;
+  border: 1px solid grey;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-task-modal-nav {
+  display: flex;
+  flex-direction: flex-end;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.new-task-close-x {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.nav-bar-new-task-form {
+  height: 400px;
+}
+
+.new-task-name-input {
+  height: 35px;
+  width: 90%;
+  text-align: left;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.new-task-form-labels {
+  display: flex;
+}
+
+.new-task-for {
+  font-size: 13px;
+  color: grey;
+  margin-left: 20px;
+}
+
+.new-task-initials {
+  border-radius: 100%;
+  background-color: #aa62e3;
+  margin-left: 20px;
+  color: white;
+  font-size: small;
+  height: 30px;
+  width: 30px;
+  
 }
