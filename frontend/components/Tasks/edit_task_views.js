@@ -4,15 +4,11 @@ import { connect } from 'react-redux';
 import EditTaskFormContainer from '../Tasks/edit_task_form_container';
 import ProjectDescriptionContainer from '../Projects/project_description_container';
 
-function TaskModal({ editTaskUI, showDesc, closeElement }) {
-  let component;
+function TaskModal({ editTaskUI, showDesc, closeElement, project }) {
+  let component = <ProjectDescriptionContainer project={project}/>
   if (editTaskUI) {
     component = <EditTaskFormContainer />
-  } else if (showDesc) {
-    component = <ProjectDescriptionContainer />
-  } else {
-    return null;
-  }
+  } 
 
   return (
     <div className="edit-task-views-background" onClick={closeElement}>

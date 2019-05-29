@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { requestLists, updateList } from '../../actions/list_actions';
 import { requestTasks, deleteTask, createTask } from '../../actions/task_actions';
-import { openTaskForm } from '../../actions/edit_task_actions'
+import { openTaskForm, closeElement, openDescription } from '../../actions/edit_task_actions'
 import ListShow from './list_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -25,7 +25,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   requestTasks: listId => dispatch(requestTasks(listId)),
   deleteTask: taskId => dispatch(deleteTask(taskId)),
   createTask: task => dispatch(createTask(task)),
-  openTaskForm: taskId => dispatch(openTaskForm(taskId))
+  openTaskForm: taskId => dispatch(openTaskForm(taskId)), 
+  closeElement: () => dispatch(closeElement()),
+  openDescription: taskId => dispatch(openDescription(taskId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListShow)

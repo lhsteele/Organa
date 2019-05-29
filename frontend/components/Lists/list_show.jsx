@@ -40,31 +40,11 @@ class ListShow extends React.Component {
     let tasks = this.props.tasks.map(task => {
       return (
         <li key={task.id} onClick={() => this.props.openTaskForm(task.id)} className="task-item-li">
-          <img src={window.checkURL} />
+          <img className="task-item-check" src={window.checkURL} />
           {task.name}
         </li>
       )
     })
-
-    // let editTaskForm;
-    // if (this.state.editTaskForm === true) {
-    //   editTaskForm = (
-    //     <div>
-    //       Edit Task Form
-    //       <TaskModal />
-    //     </div>
-    //   )
-    // }
-
-    // let description;
-    // if (this.state.projectDescription === true) {
-    //   description = (
-    //     <div className="project-description" >
-    //       <label className="description">Description</label>
-    //       <p className="description-input">{this.props.project.description}</p>
-    //     </div >
-    //   )
-    // }
 
     return (
       <div className="tasks-main">

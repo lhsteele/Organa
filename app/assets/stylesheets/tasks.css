@@ -1,13 +1,115 @@
 .tasks-index {
-  
+  border-radius: 5px;
+  border: 1px solid #dedede;
+}
+
+.tasks-index-nav {
+  height: 50px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+  display: flex;
+  align-items: center;
+}
+
+.add-task-button {
+  height: 30px;
+  margin: 20px;
+  border-radius: 5px;
+  width: 80px;
+  background-color: #14aaf5;
+  color: white;
+  font-family: Nunito;
+  font-size: small;
 }
 
 .tasks-ul {
   display: absolute;
   width: 90%;
+  height: 100%;
 }
 
 .task-item-li {
   height: 35px;
   width: auto;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.task-item-check {
+  width: 20px;
+  height: auto;
+  margin: 10px;
+}
+
+.task-form {
+  height: 300px;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 1px solid #dedede;
+}
+
+.task-edit-nav {
+  border-bottom: 1px solid rgb(220, 220, 220);
+  display: flex;
+  justify-content: space-between;
+}
+
+.only-check-img {
+  width: 15px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.complete-button {
+  margin: 10px;
+  display: flex;
+  height: 30px;
+  background-color: white;
+  color: grey;
+  font-family: Nunito;
+  font-size: small;
+  align-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.task-close-x {
+  margin: 10px;
+  color: rgb(191, 191, 191);
+  cursor: pointer;
+}
+
+.task-form-doc-img {
+  width: auto;
+  height: 20px;
+}
+
+.task-form-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.task-form-name-input {
+  width: 90%;
+  height: 35px;
+  margin-top: 10px;
+  border: none;
+  margin-left: 10px;
+  font-size: 15px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.task-form-description {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.task-form-body-input {
+
 }

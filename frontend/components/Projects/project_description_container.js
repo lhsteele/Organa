@@ -3,7 +3,6 @@ import { requestProject } from '../../actions/project_actions';
 import ProjectDescription from './project_description';
 
 const mapStateToProps = (state, ownProps) => ({
-  project: state.entities.projects[ownProps.match.params.projectId] || {},
   currentUserId: state.session.id
 });
 

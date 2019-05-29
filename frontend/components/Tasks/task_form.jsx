@@ -24,23 +24,28 @@ class TaskForm extends React.Component {
     return (
       <form className="task-form">
         <div className="task-edit-nav">
-          <button>Mark Complete</button>
-          {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
+          <button className="complete-button">
+            <img src={window.onlyCheckURL} className="only-check-img"/>
+            Mark Complete
+          </button>
+          <div onClick={this.props.closeElement} className="task-close-x">X</div>
         </div>
-        <input 
-          className="task-form-name-input"
-          type="text"
-          value={this.state.name}
-          onChange={this.updateForm("task_name")}/>
-        <div className="task-form-description">
-          <img src=""/>
-          <textarea 
-            value={this.state.task_body}
-            className="task-form-body-input"
-            onChange={this.updateForm("task_body")}>
-          </textarea>
+        {/* <label className="task-form-project-label">Project Name here</label> */}
+        <div className='task-form-body'>
+          <input 
+            className="task-form-name-input"
+            type="text"
+            value={this.state.name}
+            onChange={this.updateForm("task_name")}/>
+          <div className="task-form-description">
+            <img className="task-form-doc-img" src={window.documentURL}/>
+            <p 
+              value={this.state.task_body}
+              className="task-form-body-input"
+              onChange={this.updateForm("task_body")}>
+            </p>
+          </div>
         </div>
-        <label className="task-form-project-label">Project Name here</label>
       </form>
     )
   }

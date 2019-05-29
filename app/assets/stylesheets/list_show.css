@@ -1,0 +1,28 @@
+.list-show-project-description {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-right: 10px;
+  border: .1px solid rgb(220, 220, 220);
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+  border-radius: 5px;
+  border: 1px solid #dedede;
+}
+
+.list-show-description-label {
+  font-size: 13px;
+  text-align: left;
+  margin: 20px;
+}
+
+.project-desc-textarea {
+  font-size: 13px;
+  margin: 0 20px 20px 20px;
+  text-align: left;
+}
+
+.edit-task-views-child {
+  margin-right: 15px;
+}

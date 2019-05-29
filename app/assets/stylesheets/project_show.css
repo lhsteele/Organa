@@ -97,6 +97,9 @@
   left: 0;
 }
 
+.tasks {
+  height: 88%;
+}
 
 .tasks-main {
   display: grid;
