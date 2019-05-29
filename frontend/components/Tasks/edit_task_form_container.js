@@ -25,7 +25,7 @@ class EditTaskForm extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   task: state.entities.tasks[state.ui.editTaskUI] || {}, 
   formType: ownProps.formType, 
-  list: Object.keys(state.entities.lists)[0]
+  listId: Object.keys(state.entities.lists)[0]
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

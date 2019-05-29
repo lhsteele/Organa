@@ -6,7 +6,14 @@ import TaskIndexItem from './task_index_item';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = props.task
+    // this.state = props.task
+    this.state = {
+        list_id: props.list,
+        task_name: props.task.task_name || "",
+        section_name: props.task.section_name || "",
+        task_body: props.task.task_body || "",
+        complete: props.task.complete || false
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleX = this.handleX.bind(this)
   }
@@ -24,7 +31,9 @@ class TaskForm extends React.Component {
   handleX(e) {
     e.stopPropagation();
     if (this.props.formType === 'new') {
-      this.props.createTask(this.state.list_id)
+      this.setState({list_id: this.props.listId})
+      debugger
+      this.props.createTask(this.state)
         .then(this.props.closeElement)
     } else {
       this.props.updateTask(this.state)
