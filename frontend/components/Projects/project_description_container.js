@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestProject } from '../../actions/project_actions';
-import ProjectShow from './project_show';
+import ProjectDescription from './project_description';
 
 const mapStateToProps = (state, ownProps) => ({
   project: state.entities.projects[ownProps.match.params.projectId] || {},
@@ -11,5 +11,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   requestProject: project => dispatch(requestProject(project))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectShow)
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectDescription)
 

@@ -3,20 +3,19 @@ import { openTaskForm, closeElement, openDescription } from '../../actions/edit_
 import { connect } from 'react-redux';
 import EditTaskFormContainer from '../Tasks/edit_task_form_container';
 import ProjectDescriptionContainer from '../Projects/project_description_container';
-import ListShow from '../Lists/list_show';
 
-function TaskModal({ editTaskUI, showDesc, openDescription, openTaskForm, closeElement }) {
+function TaskModal({ editTaskUI, showDesc, closeElement }) {
   let component;
   if (editTaskUI) {
     component = <EditTaskFormContainer />
   } else if (showDesc) {
     component = <ProjectDescriptionContainer />
-  } else { 
+  } else {
     return null;
   }
 
   return (
-    <div className="edit-task-views-background" onClick={closeElement}> 
+    <div className="edit-task-views-background" onClick={closeElement}>
       <div className="edit-task-views-child" onClick={e => e.stopPropagation()}>
         {component}
       </div>

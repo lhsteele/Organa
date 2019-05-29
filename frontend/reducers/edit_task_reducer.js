@@ -7,7 +7,7 @@ import {
 export default function editTaskUI(state = null, action) {
   switch (action.type) {
     case OPEN_TASK_FORM:
-      return Object.assign({}, state, { editTaskUI: action.taskId})
+      return action.taskId
     case CLOSE_ELEMENT:
       return null;
     default:

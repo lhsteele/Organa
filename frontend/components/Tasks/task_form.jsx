@@ -6,11 +6,8 @@ import TaskIndexItem from './task_index_item';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props)
+    this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  componentDidMount() {
-    this.props.requestTask(this.props.task.id)
   }
 
   handleSubmit(e) {
@@ -25,7 +22,7 @@ class TaskForm extends React.Component {
 
   render() {
     return (
-      <div className="task-form">
+      <form className="task-form">
         <div className="task-edit-nav">
           <button>Mark Complete</button>
           {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
@@ -33,18 +30,18 @@ class TaskForm extends React.Component {
         <input 
           className="task-form-name-input"
           type="text"
-          value={this.props.task.name}
+          value={this.state.name}
           onChange={this.updateForm("task_name")}/>
         <div className="task-form-description">
           <img src=""/>
           <textarea 
-            value={this.props.task.task_body}
-            className="task-form-body-input">
+            value={this.state.task_body}
+            className="task-form-body-input"
+            onChange={this.updateForm("task_body")}>
           </textarea>
         </div>
         <label className="task-form-project-label">Project Name here</label>
-
-      </div>
+      </form>
     )
   }
 }

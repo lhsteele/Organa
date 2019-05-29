@@ -5,7 +5,7 @@ export default function showDesc(state = null, action) {
     case CLOSE_ELEMENT:
       return null;
     case OPEN_DESCRIPTION:
-      return Object.assign({}, state, { [action.type]: action.taskId })
+      return action.taskId
     default:
       return state;
   }

@@ -21,10 +21,9 @@ class EditTaskForm extends React.Component {
 
 }
 
-const mapStateToProps = (state, ownProps) => {
-  debugger
-  return { task: ownProps.task }
-}
+const mapStateToProps = (state, ownProps) => ({
+  task: state.entities.tasks[state.ui.editTaskUI]
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   requestTask: taskId => dispatch(requestTask(taskId)),

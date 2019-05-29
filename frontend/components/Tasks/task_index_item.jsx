@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ListListShow from '../Lists/list_show';
 import EditTaskFormContainer from './edit_task_form_container';
+import TaskModal from '../Tasks/edit_task_form_container';
 
 class TaskIndexItem extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class TaskIndexItem extends React.Component {
       return editTaskForm = (
         <div>
           Edit Task Form
-          <EditTaskFormContainer task={this.props.task} />
+          <TaskModal />
         </div>
       )
     }
