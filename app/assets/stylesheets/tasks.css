@@ -1,0 +1,13 @@
+.tasks-index {
+  
+}
+
+.tasks-ul {
+  display: absolute;
+  width: 90%;
+}
+
+.task-item-li {
+  height: 35px;
+  width: auto;
+}

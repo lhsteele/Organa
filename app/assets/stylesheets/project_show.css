@@ -4,9 +4,9 @@
 
 .show-page-main {
   display: grid;
-  grid-template-columns: 15% auto;
+  grid-template-columns: 12.5% auto;
   font-family: Nunito;
-  height: 100%;
+  height: 100vh;
 }
 
 .project-show-main {
@@ -101,16 +101,18 @@
 .tasks-main {
   display: grid;
   grid-template-columns: 80% auto;
+  height: 100%;
 }
 
 .tasks-index {
   width: auto;
-  height: 100%;
+  height: 95%;
   border: .1px solid rgb(220, 220, 220);
   box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .project-description {

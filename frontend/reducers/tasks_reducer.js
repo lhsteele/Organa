@@ -4,6 +4,7 @@ import {
   REMOVE_TASK
 } from '../actions/task_actions';
 
+
 const tasksReducer = (state={}, action) => {
   Object.freeze(state);
   switch(action.type) {

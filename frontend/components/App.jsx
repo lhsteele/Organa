@@ -2,16 +2,22 @@ import React from 'react'
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './Modal/modal';
+import TaskModal from './Tasks/edit_task_views';
 import Splash from './Splash/splash_container';
 import LoginFormContainer from './Auth/login_form_container';
 import SignupFormContainer from './Auth/signup_form_container';
 import Home from '../components/Home/home_container';
-import ProjectShowContainer from '../components/Projects/project_show_container';
+// import ProjectShowContainer from '../components/Projects/project_show_container';
 import CreateProjectFormContainer from '../components/Projects/create_project_form_container';
+
+function test() {
+  console.log("test")
+}
 
 const App = () => (
   <div>
     <Modal />
+    <TaskModal />
     <div>
     </div>
     <Switch>

@@ -16,5 +16,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   archiveProject: projectId => dispatch(archiveProject(projectId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectShow)
+function show() {
+  return null;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(show)
 
