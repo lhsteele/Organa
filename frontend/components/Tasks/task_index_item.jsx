@@ -14,13 +14,17 @@ class TaskIndexItem extends React.Component {
     return (
       <div>
         <div className="transparent-modal" onClick={this.clearEditTaskForm}></div>
-        <li className="task-item-li" 
+        {/* <li className="task-item-li" 
           key={this.props.task.id}>
           <img 
             src={window.checkURL}/>
           <label>
             {this.props.task.name}
           </label>
+        </li> */}
+        <li onClick={() => this.props.openTaskForm(this.props.task.id)} className="task-item-li">
+          <img className="task-item-check" src={window.checkURL} />
+          {this.props.task.name}
         </li>
       </div>
     )

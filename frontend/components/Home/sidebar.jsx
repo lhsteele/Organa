@@ -38,6 +38,8 @@ class Sidebar extends React.Component {
         <SidebarIndexItem 
           key={project.id}
           project={project}
+          requestLists={this.props.requestLists}
+          requestTasks={this.props.requestTasks}
         />
       )
     })

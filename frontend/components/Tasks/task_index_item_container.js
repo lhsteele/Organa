@@ -5,18 +5,18 @@ import { openTaskForm, openDescription } from '../../actions/edit_task_actions';
 import { closeElement } from '../../actions/edit_task_actions';
 import TaskIndexItem from './task_index_item';
 
-const mapStateToProps = (state, ownProps) => {
-  const listIds = ownProps.project.listIds || []
-  const list = state.entities.lists[listIds[0]] || {}
-  const taskIds = list.taskIds || []
-  const tasks = taskIds.map(id => (
-    state.entities.tasks[id]
-  ))
-  return ({
-    list: list,
-    tasks: tasks
-  })
-}
+// const mapStateToProps = (state, ownProps) => {
+//   const listIds = ownProps.project.listIds || []
+//   const list = state.entities.lists[listIds[0]] || {}
+//   const taskIds = list.taskIds || []
+//   const tasks = taskIds.map(id => (
+//     state.entities.tasks[id]
+//   ))
+//   return ({
+//     list: list,
+//     tasks: tasks
+//   })
+// }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   requestList: listId => dispatch(requestList(listId)),
@@ -29,4 +29,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   openDescription: taskId => dispatch(openDescription(taskId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskIndexItem);
+export default connect(null, mapDispatchToProps)(TaskIndexItem);

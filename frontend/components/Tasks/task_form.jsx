@@ -9,6 +9,7 @@ class TaskForm extends React.Component {
     this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleX = this.handleX.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   updateTask(task_name, list_id) {
@@ -34,10 +35,11 @@ class TaskForm extends React.Component {
     }
   }
 
+  //do I need to force a re-render here somehow? 
+  // save tasks to a local slice of state and setState?
   handleX(e) {
     e.stopPropagation();
     let task = this.updateTask(this.state.task_name, this.props.listId)
-    debugger
     if (this.props.formType === 'new') {
       this.props.createTask(task)
       .then(this.props.closeElement)
@@ -47,12 +49,18 @@ class TaskForm extends React.Component {
     }
   }
 
+  handleDelete(e) {
+    e.stopPropagation();
+    this.props.deleteTask(this.state.id);
+    this.props.closeElement();
+  }
+
   render() {
     return (
       <form className="task-form">
         <div className="task-edit-nav">
           <button className="complete-button"
-            onClick={() => this.props.deleteTask(this.state.id)}>
+            onClick={this.handleDelete}>
             <img 
               src={window.onlyCheckURL} 
               className="only-check-img"/>

@@ -37,7 +37,9 @@ const listsReducer = (state={}, action) => {
       task = action.task;
       newState = Object.assign({}, state);
       if (newState[task.list_id].taskIds) {
-        newState[task.list_id].taskIds.push(task.id)
+        if (!newState[task.list_id].taskIds.includes(task.id)) {
+          newState[task.list_id].taskIds.push(task.id)
+        }
       } else {
         newState[task.list_id].taskIds = [task.id]
       }

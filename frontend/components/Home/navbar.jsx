@@ -41,19 +41,18 @@ class NavBar extends React.Component {
     }
   }
 
-  fetchUsersProjects() {
+  formatProjects() {
     let projects = [];
     Object.values(this.props.projects).forEach(project => {
       if (project.owner_id === this.props.currentUserId && project.archived === false) {
         projects.push(project)
       }
     })
-    this.setState({ userProjects: projects })
+    return projects
   }
 
   handleProjectsButtonClick(e) {
     e.stopPropagation();
-    this.fetchUsersProjects();
     this.setState({ showProjectsModal: true });
   }
 
@@ -98,23 +97,33 @@ class NavBar extends React.Component {
       )
     }
 
-    let projects = this.state.userProjects.map(project => {
-        return (
-          <li
-            key={project.id}
-            className="project-modal-li"
-            onClick={this.handleSelectProjectClick(project)}>
-            {project.name}
-          </li>
-        )
-    })
+    // let projects = this.state.userProjects.map(project => {
+    //     return (
+    //       <li
+    //         key={project.id}
+    //         className="project-modal-li"
+    //         onClick={this.handleSelectProjectClick(project)}>
+    //         {project.name}
+    //       </li>
+    //     )
+    // })
     let projectModal;
     if (this.state.showProjectsModal === true) {
       projectModal = (
         <>
           <div className="project-modal-div" onClick={this.handleClearModal}></div>
           <ul className="project-modal-ul">
-            {projects}
+            {/* {projects} */}
+            {this.formatProjects().map(project => {
+              return(
+                <li 
+                  key={project.id}
+                  className="project-modal-li"
+                  onClick={() => this.handleSelectProjectClick(project)}>
+                  {project.name}  
+                </li>
+              )
+            })}
           </ul>
         </>
       )
@@ -142,12 +151,11 @@ class NavBar extends React.Component {
                 {this.props.first_name}{this.props.last_name}
               </label>
               <label className="in">in</label>
-              <button 
+              <div 
                 className="project-select-button"
                 onClick={this.handleProjectsButtonClick}>
                 {this.state.projectButtonName}
-              </button>
-              {projectModal}
+              </div>
             </div>
             <div>
               <textarea 
@@ -160,6 +168,7 @@ class NavBar extends React.Component {
                 className="new-task-submit"
                 onClick={this.handleSubmit}/>
             </div>
+            {projectModal}
           </form>
         </div>
       )

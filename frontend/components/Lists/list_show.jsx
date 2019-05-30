@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProjectShow from '../Projects/project_show_container';
-import TaskIndexItem from '../Tasks/task_index_item';
+import TaskIndexItemContainer from '../Tasks/task_index_item_container';
 import EditTaskFormContainer from '../Tasks/edit_task_form_container';
 import TaskModal from '../Tasks/edit_task_views';
 
@@ -11,17 +11,28 @@ class ListShow extends React.Component {
     this.state = {
       editTaskForm: false,
       projectDescription: true,
-      task: {}
+      tasks: []
     }
   }
 
-  componentDidMount() {
+  componentDidMount() {  
     this.props.requestLists(this.props.projectId)
       .then(lists => {
         this.props.requestTasks(
           Object.keys(lists)[0]
         )
       })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.projectId !== this.props.projectId) {
+      this.props.requestLists(this.props.projectId)
+        .then(lists => {
+          this.props.requestTasks(
+            Object.keys(lists)[0]
+          )
+        })
+    }
   }
 
   render() {
@@ -44,7 +55,7 @@ class ListShow extends React.Component {
             </button>
           </div>
           <ul className="tasks-ul">
-            {tasks}
+            {this.state.tasks ? ( tasks ) : null }
           </ul>
         </div>
         <TaskModal project={this.props.project}/>
