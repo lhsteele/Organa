@@ -7,6 +7,10 @@ class NavBar extends React.Component {
     this.state = {
       showNewButtonModal: false,
       newTaskModal: false, 
+      showProjectsModal: false,
+      userProjects: [],
+      projectButtonName: 'Project',
+      project: {},
       task: {
         task_name: "",
         complete: false, 
@@ -14,6 +18,9 @@ class NavBar extends React.Component {
       }
     }
     this.handleClearModal = this.handleClearModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleProjectsButtonClick = this.handleProjectsButtonClick.bind(this);
+    this.handleSelectProjectClick = this.handleSelectProjectClick.bind(this);
   }
 
   handleClearModal(e) {
@@ -23,13 +30,40 @@ class NavBar extends React.Component {
 
   handleSubmit(e) {
     e.stopPropagation();
-    this.props.createTask(this.state)
+    let list = this.props.requestLists(this.state.project)[0]
+    this.setState({ task: {list_id: list}})
+    this.props.createTask(this.state.task)
   }
 
   updateForm(field) {
     return (e) => {
       this.setState({ task: { [field]: e.target.value } })
     }
+  }
+
+  fetchUsersProjects() {
+    let projects = [];
+    Object.values(this.props.projects).forEach(project => {
+      if (project.owner_id === this.props.currentUserId && project.archived === false) {
+        projects.push(project)
+      }
+    })
+    this.setState({ userProjects: projects })
+  }
+
+  handleProjectsButtonClick(e) {
+    e.stopPropagation();
+    this.fetchUsersProjects();
+    this.setState({ showProjectsModal: true });
+  }
+
+  handleSelectProjectClick(project) {
+    // e.stopPropagation();
+    this.setState({ 
+      projectButtonName: project.name, 
+      showProjectsModal: false, 
+      project: project
+    })
   }
 
   render() {
@@ -64,6 +98,28 @@ class NavBar extends React.Component {
       )
     }
 
+    let projects = this.state.userProjects.map(project => {
+        return (
+          <li
+            key={project.id}
+            className="project-modal-li"
+            onClick={this.handleSelectProjectClick(project)}>
+            {project.name}
+          </li>
+        )
+    })
+    let projectModal;
+    if (this.state.showProjectsModal === true) {
+      projectModal = (
+        <>
+          <div className="project-modal-div" onClick={this.handleClearModal}></div>
+          <ul className="project-modal-ul">
+            {projects}
+          </ul>
+        </>
+      )
+    }
+
     let newTaskModal;
     if (this.state.newTaskModal === true) {
       newTaskModal = (
@@ -78,6 +134,7 @@ class NavBar extends React.Component {
               placeholder="Task Name"
               onChange={this.updateForm("task_name")}
               className="new-task-name-input" />
+            
             <div className="new-task-form-labels">
               <label className="new-task-for">For</label>
               <label className="user-name">
@@ -85,17 +142,24 @@ class NavBar extends React.Component {
                 {this.props.first_name}{this.props.last_name}
               </label>
               <label className="in">in</label>
-              <button className="project-select-button">Project</button>
+              <button 
+                className="project-select-button"
+                onClick={this.handleProjectsButtonClick}>
+                {this.state.projectButtonName}
+              </button>
+              {projectModal}
             </div>
-            <textarea 
-              type="text"
-              className="description-input"
-              placeholder="Description"/>
-            <input 
-              type="submit"
-              value="Create Task"
-              className="new-task-submit"
-              onClick={this.handleSubmit}/>
+            <div>
+              <textarea 
+                type="text"
+                className="description-input"
+                placeholder="Description"/>
+              <input 
+                type="submit"
+                value="Create Task"
+                className="new-task-submit"
+                onClick={this.handleSubmit}/>
+            </div>
           </form>
         </div>
       )

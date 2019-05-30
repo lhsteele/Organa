@@ -179,10 +179,11 @@
 .project-select-button {
   margin-left: 10px;
   height: 35px;
-  width: 85px;
   border-radius: 40px;
   font-size: 14px;
   border-style: dashed;
+  display: inline-block;
+  text-align: center;
 }
 
 .description-input {
@@ -208,3 +209,32 @@
   opacity: 1; 
   transition: opacity .5s;
 } */
+
+.new-task-projects-list {
+  height: 200px;
+  width: 200px;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-modal-div {
+  position: absolute;
+}
+
+.project-modal-ul {
+  position: fixed;
+  margin-top: 85px;
+  background-color: white;
+  border: 1px solid grey;
+  height: 100px;
+  width: 250px;
+  font-size: 13px;
+  padding: 10px;
+  text-align: left;
+}
+
+.project-modal-li {
+  padding: 5px;
+  cursor: pointer;
+}
