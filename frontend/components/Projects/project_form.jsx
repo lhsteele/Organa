@@ -20,7 +20,6 @@ class ProjectForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitEvent(this.state)
-      .then(() => this.props.createList(this.state.list))
     this.props.history.push(`/home`)
   }
 
