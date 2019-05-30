@@ -6,7 +6,6 @@ import TaskIndexItem from './task_index_item';
 class TaskForm extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = props.task
     this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleX = this.handleX.bind(this)
@@ -38,13 +37,11 @@ class TaskForm extends React.Component {
   handleX(e) {
     e.stopPropagation();
     let task = this.updateTask(this.state.task_name, this.props.listId)
-    // this.setState({list_id: this.props.listId})
     debugger
     if (this.props.formType === 'new') {
       this.props.createTask(task)
       .then(this.props.closeElement)
     } else {
-      // this.setState({task_name: this.state.task_name})
       this.props.updateTask(task)
         .then(this.props.closeElement)
     }
@@ -67,7 +64,7 @@ class TaskForm extends React.Component {
           <input 
             className="task-form-name-input"
             type="text"
-            defaultValue={this.state.task_name}
+            defaultValue={this.state.name}
             onChange={this.updateForm("task_name")}/>
           <div className="task-form-description">
             <img className="task-form-doc-img" src={window.documentURL}/>

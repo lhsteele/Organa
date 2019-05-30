@@ -80,20 +80,21 @@ class NavBar extends React.Component {
               className="new-task-name-input" />
             <div className="new-task-form-labels">
               <label className="new-task-for">For</label>
-              <label>
+              <label className="user-name">
                 <div className="new-task-initials">{firstInitial}{lastInitial}</div>
                 {this.props.first_name}{this.props.last_name}
               </label>
-              <label>in</label>
-              <button>Project</button>
+              <label className="in">in</label>
+              <button className="project-select-button">Project</button>
             </div>
-            <input 
+            <textarea 
               type="text"
-              className=""
+              className="description-input"
               placeholder="Description"/>
             <input 
               type="submit"
               value="Create Task"
+              className="new-task-submit"
               onClick={this.handleSubmit}/>
           </form>
         </div>
