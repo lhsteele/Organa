@@ -31,12 +31,11 @@ class NavBar extends React.Component {
   prepTaskForCreate(task_name, list_id) {
     return (
       {
-        id: this.state.id,
         list_id: list_id,
         task_name: task_name,
-        section_name: this.state.section_name || "",
+        // section_name: this.state.section_name || "",
         task_body: this.state.task_body || "",
-        complete: false
+        // complete: false
       }
     )
   }
