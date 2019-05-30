@@ -20,10 +20,6 @@ class ProjectsIndex extends React.Component {
       .then(() => (this.fetchUsersProjects()));
   }
 
-  componentDidUpdate(prevProps) {
-    
-  }
-
   fetchUsersProjects() {
     let projects = [];
     Object.values(this.props.projects).forEach(project => {

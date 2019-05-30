@@ -96,17 +96,7 @@ class NavBar extends React.Component {
         </>
       )
     }
-
-    // let projects = this.state.userProjects.map(project => {
-    //     return (
-    //       <li
-    //         key={project.id}
-    //         className="project-modal-li"
-    //         onClick={this.handleSelectProjectClick(project)}>
-    //         {project.name}
-    //       </li>
-    //     )
-    // })
+    
     let projectModal;
     if (this.state.showProjectsModal === true) {
       projectModal = (

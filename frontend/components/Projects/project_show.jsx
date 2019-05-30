@@ -209,7 +209,6 @@ class ProjectShow extends React.Component {
 
     let archive;
     if (this.state.showArchive === true) {
-      // {this.handleArchive}
       archive = (
         <div className="show-archive-bar">
           <div className="show-archive-left">

@@ -35,8 +35,6 @@ class TaskForm extends React.Component {
     }
   }
 
-  //do I need to force a re-render here somehow? 
-  // save tasks to a local slice of state and setState?
   handleX(e) {
     e.stopPropagation();
     let task = this.updateTask(this.state.task_name, this.props.listId)

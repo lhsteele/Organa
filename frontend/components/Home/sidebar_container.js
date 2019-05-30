@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { logout } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'
 import { requestProjects } from '../../actions/project_actions';
 import { requestLists } from '../../actions/list_actions';
@@ -16,7 +15,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // logoutUser: () => dispatch(logout()),
   openModal: modalType => dispatch(openModal(modalType)),
   closeModal: () => dispatch(closeModal()),
   requestProjects: () => dispatch(requestProjects()),
