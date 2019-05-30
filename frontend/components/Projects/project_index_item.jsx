@@ -13,7 +13,8 @@ class ProjectIndexItem extends React.Component {
       showTextArea: false,
       project: {
         name: this.props.project.name,
-        description: this.props.project.description || ""
+        description: this.props.project.description || "",
+        id: this.props.project.id
       }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,10 +26,9 @@ class ProjectIndexItem extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     this.props.updateProject(this.state.project)
-      .then(() => this.setState({ showModal: false }))
+      .then(() => this.props.history.push(`/projects/${this.state.project.id}`))
   }
 
   updateForm(field) {
@@ -88,7 +88,7 @@ class ProjectIndexItem extends React.Component {
       textArea = (
         <>
           <textarea
-            value={this.state.project.description}
+            defaultValue={this.state.project.description}
             id="description"
             onChange={this.updateForm("description")}
             className="edit-project-form-description">
@@ -118,7 +118,7 @@ class ProjectIndexItem extends React.Component {
                 <input
                   type="text"
                   id="name"
-                  value={this.state.project.name}
+                  defaultValue={this.state.project.name}
                   onChange={this.updateForm("name")}
                   className="project-form-name"
                 />
@@ -127,7 +127,7 @@ class ProjectIndexItem extends React.Component {
                 className="textarea-input-label">
                 Description
                 <textarea
-                  value={this.state.project.description}
+                  defaultValue={this.state.project.description}
                   id="description"
                   onChange={this.updateForm("description")}
                   className="edit-project-form-description">
@@ -163,7 +163,7 @@ class ProjectIndexItem extends React.Component {
                 <input
                   type="text"
                   id="name"
-                  value={this.state.project.name}
+                  defaultValue={this.state.project.name}
                   onChange={this.updateForm("name")}
                   className="project-form-name"
                 />

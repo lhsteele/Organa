@@ -33,7 +33,6 @@ class ProjectShow extends React.Component {
     e.preventDefault();
     this.props.updateProject(this.state.project)
       .then(this.setState({ showEditModal: false }))
-      // .then(() => this.props.history.push('/home'))
   }
 
   handleDelete(e) {
