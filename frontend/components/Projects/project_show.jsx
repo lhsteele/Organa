@@ -298,7 +298,6 @@ class ProjectShow extends React.Component {
         </div>
       </div>
     )
-
   }
 }
 
