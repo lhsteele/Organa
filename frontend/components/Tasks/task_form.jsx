@@ -7,15 +7,22 @@ class TaskForm extends React.Component {
   constructor(props) {
     super(props)
     // this.state = props.task
-    this.state = {
-        list_id: props.list,
-        task_name: props.task.task_name || "",
-        section_name: props.task.section_name || "",
-        task_body: props.task.task_body || "",
-        complete: props.task.complete || false
-    }
+    this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleX = this.handleX.bind(this)
+  }
+
+  updateTask(task_name, list_id) {
+    return (
+     {
+        id: this.state.id,
+        list_id: list_id,
+        task_name: task_name,
+        section_name: this.state.section_name || "",
+        task_body: this.state.task_body || "",
+        complete: this.state.complete || false
+      }
+    )
   }
 
   handleSubmit(e) {
@@ -30,13 +37,15 @@ class TaskForm extends React.Component {
 
   handleX(e) {
     e.stopPropagation();
+    let task = this.updateTask(this.state.task_name, this.props.listId)
+    // this.setState({list_id: this.props.listId})
+    debugger
     if (this.props.formType === 'new') {
-      this.setState({list_id: this.props.listId})
-      debugger
-      this.props.createTask(this.state)
-        .then(this.props.closeElement)
+      this.props.createTask(task)
+      .then(this.props.closeElement)
     } else {
-      this.props.updateTask(this.state)
+      // this.setState({task_name: this.state.task_name})
+      this.props.updateTask(task)
         .then(this.props.closeElement)
     }
   }
@@ -58,7 +67,7 @@ class TaskForm extends React.Component {
           <input 
             className="task-form-name-input"
             type="text"
-            defaultValue={this.state.name}
+            defaultValue={this.state.task_name}
             onChange={this.updateForm("task_name")}/>
           <div className="task-form-description">
             <img className="task-form-doc-img" src={window.documentURL}/>
