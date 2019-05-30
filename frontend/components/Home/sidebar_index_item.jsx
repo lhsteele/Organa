@@ -9,7 +9,6 @@ class SidebarIndexItem extends React.Component {
   }
 
   checkArchived() {
-    debugger
     if (this.props.project.archived === true) {
       this.setState({ showArchive: true })
     }

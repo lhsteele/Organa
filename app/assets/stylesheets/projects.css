@@ -128,7 +128,7 @@
 
 /* .project-item */
 .textarea-input-label {
-  margin: 40px;
+  margin: 20px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -154,7 +154,7 @@
 .submit-button-container {
   display: flex;
   justify-content: flex-end;
-  margin-right: 20px;
+  margin: 20px;
 }
 
 /* .project-item */

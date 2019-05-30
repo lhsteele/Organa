@@ -14,7 +14,6 @@ class ProjectShow extends React.Component {
       showDeleteModal: false,
       showArchive: false,
       archived: this.props.project.archived || false
-      // list: this.props.requestList(this.props.project.id)
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateForm = this.updateForm.bind(this);
@@ -26,35 +25,34 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestProject(this.props.match.params.projectId)
+    this.props.requestProject(this.props.match.params.projectId);
     this.checkArchived();
   }
   
-  // componentDidUpdate() {
-  //   this.checkArchived();
-  // }
-
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateProject(this.state.project)
-      .then(() => this.props.history.push('/home'))
+      .then(this.setState({ showEditModal: false }))
+      // .then(() => this.props.history.push('/home'))
   }
 
   handleDelete(e) {
-    this.props.deleteProject(this.props.project.id)
-    this.setState({ showDeleteModal: false })
-    this.props.history.push(`/home`)
+    this.props.deleteProject(this.props.project.id);
+    this.setState({ showDeleteModal: false });
+    this.props.history.push(`/home`);
   }
 
   handleArchive(e) {
-    this.setState({ showArchive: true, menuModal: false }),
-    this.props.archiveProject(this.props.project.id)
+    this.setState({ showArchive: true, menuModal: false, archived: true });
+    this.props.archiveProject(this.props.project.id);
   }
 
+  // onClick = {() => this.setState({ showArchive: true, menuModal: false, archived: true }),
+  //   this.handleArchive}>
+
   handleRestore(e) {
-    this.setState({ showArchive: false, menuModal: false })
-    this.props.archiveProject(this.props.project.id)
+    this.setState({ showArchive: false, menuModal: false });
+    this.props.archiveProject(this.props.project.id);
   }
 
   checkArchived() {
@@ -75,9 +73,11 @@ class ProjectShow extends React.Component {
 
   updateForm(field) {
     return (e) => {
-      this.setState({project: 
+      this.setState({ project: 
         { [field]: e.target.value,
-        id: this.props.project.id}})
+          id: this.props.project.id
+        }
+      })
     }
   }
 
@@ -96,8 +96,7 @@ class ProjectShow extends React.Component {
               </li>
               <li
                 key={2}
-                onClick={() => this.setState({ showArchive: true, menuModal: false, archived: true }),
-                this.handleArchive}>
+                onClick={this.handleArchive}>
                 Archive Project
               </li>
               <li
@@ -126,46 +125,87 @@ class ProjectShow extends React.Component {
 
     let editModal;
     if (this.state.showEditModal === true) {
-      editModal = (
-        // this is a fragment
-        <>
-          <div className="transparent-modal" onClick={this.handleClearModal}></div>
-          <form className="edit-modal"
-            onSubmit={this.handleSubmit}>
-            <div className="edit-modal-label">
-              <label className="dynamic-project-name">Edit
-              <span className="edit-project-name"> {this.props.project.name}</span>
-              </label>
-              <div onClick={this.handleClearModal} className="edit-close-x">X</div>
-            </div>
-            <label className="text-input-label">
-              Project Name
-              <input
-                type="text"
-                defaultValue={this.props.project.name}
-                onChange={this.updateForm("name")}
-                className="project-form-name"
-              />
-            </label>
-            <label
-              onClick={() => this.setState({ showTextArea: true })}
-              className="textarea-input-label">
-              Description
-              {textArea}
-            </label>
-            {/* <input type="hidden" value={this.props.project.owner_id} name="owner_id" />
-            <input type="hidden" value={this.props.project.archived} name="archived" /> */}
-            <div className="submit-button-container">
-              <div className="update-form-submit-button">
-                <input
-                  type="submit"
-                  defaultValue="Update Project"
-                  className="update-input" />
+      if (this.props.project.description) {
+        editModal = (
+          // this is a fragment
+          <>
+            <div className="transparent-modal" onClick={this.handleClearModal}></div>
+            <form className="edit-modal"
+              onSubmit={this.handleSubmit}>
+              <div className="edit-modal-label">
+                <label className="dynamic-project-name">Edit
+                <span className="edit-project-name">{this.props.project.name}</span>
+                </label>
+                <div onClick={this.handleClearModal} className="edit-close-x">X</div>
               </div>
-            </div>
-          </form>
-        </>
-      )
+              <label className="text-input-label">
+                Project Name
+                <input
+                  type="text"
+                  defaultValue={this.props.project.name}
+                  onChange={this.updateForm("name")}
+                  className="project-form-name"
+                />
+              </label>
+              <label className="textarea-input-label">
+                Description
+                <textarea
+                  defaultValue={this.props.project.description}
+                  onChange={this.updateForm("description")}
+                  className="edit-project-form-description">
+                </textarea>
+              </label>
+              <div className="submit-button-container">
+                <div className="update-form-submit-button">
+                  <input
+                    type="submit"
+                    defaultValue="Update Project"
+                    className="update-input" />
+                </div>
+              </div>
+            </form>
+          </>
+        )
+      } else {
+        editModal = (
+          // this is a fragment
+          <>
+            <div className="transparent-modal" onClick={this.handleClearModal}></div>
+            <form className="edit-modal"
+              onSubmit={this.handleSubmit}>
+              <div className="edit-modal-label">
+                <label className="dynamic-project-name">Edit
+                <span className="edit-project-name">{this.props.project.name}</span>
+                </label>
+                <div onClick={this.handleClearModal} className="edit-close-x">X</div>
+              </div>
+              <label className="text-input-label">
+                Project Name
+                <input
+                  type="text"
+                  defaultValue={this.props.project.name}
+                  onChange={this.updateForm("name")}
+                  className="project-form-name"
+                />
+              </label>
+              <label
+                onClick={() => this.setState({ showTextArea: true })}
+                className="textarea-input-label">
+                Description
+                {textArea}
+              </label>
+              <div className="submit-button-container">
+                <div className="update-form-submit-button">
+                  <input
+                    type="submit"
+                    defaultValue="Update Project"
+                    className="update-input" />
+                </div>
+              </div>
+            </form>
+          </>
+        )
+      }
     }
 
     let archive;
