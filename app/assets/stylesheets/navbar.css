@@ -178,12 +178,13 @@
 
 .project-select-button {
   margin-left: 10px;
-  height: 35px;
+  height: 20px;
   border-radius: 40px;
   font-size: 14px;
-  border-style: dashed;
-  display: inline-block;
-  text-align: center;
+  border: 1px dashed grey;
+  display: flex;
+  align-items: center;
+  padding: 5px;
 }
 
 .description-input {

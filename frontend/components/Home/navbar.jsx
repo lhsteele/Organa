@@ -11,11 +11,11 @@ class NavBar extends React.Component {
       userProjects: [],
       projectButtonName: 'Project',
       project: {},
-      task: {
-        task_name: "",
-        complete: false, 
-        list_id: props.listId
-      }
+      // task: {
+      //   task_name: "",
+      //   complete: false, 
+      //   list_id: props.listId
+      // }
     }
     this.handleClearModal = this.handleClearModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,6 +26,19 @@ class NavBar extends React.Component {
   handleClearModal(e) {
     e.stopPropagation();
     this.setState({ showNewButtonModal: false })
+  }
+
+  prepTaskForCreate(task_name, list_id) {
+    return (
+      {
+        id: this.state.id,
+        list_id: list_id,
+        task_name: task_name,
+        section_name: this.state.section_name || "",
+        task_body: this.state.task_body || "",
+        complete: false
+      }
+    )
   }
 
   handleSubmit(e) {
@@ -155,8 +168,8 @@ class NavBar extends React.Component {
               <input 
                 type="submit"
                 value="Create Task"
-                className="new-task-submit"
-                onClick={this.handleSubmit}/>
+                className="new-task-submit"/>
+                {/* onClick={this.handleSubmit}/ */}
             </div>
             {projectModal}
           </form>
