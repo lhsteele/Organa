@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createTask, deleteTask } from '../../actions/task_actions';
+import { createList } from '../../actions/list_actions';
 import { closeElement } from '../../actions/edit_task_actions'
 import TaskForm from './task_form';
 
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   createTask: task => dispatch(createTask(task)), 
   deleteTask: taskId => dispatch(deleteTask(taskId)),
-  closeElement: () => dispatch(closeElement())
+  closeElement: () => dispatch(closeElement()), 
+  createList: list => dispatch(createList())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskForm)

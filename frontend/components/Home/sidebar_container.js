@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
   modalType: 'profile',
   projects: state.entities.projects,
   currentUserId: state.session.id, 
+  listId: Object.keys(state.entities.lists)[0]
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -37,7 +37,14 @@ class TaskForm extends React.Component {
 
   handleX(e) {
     e.stopPropagation();
-    let task = this.updateTask(this.state.task_name, this.props.listId)
+    let task;
+    if (this.props.listId) {
+      task = this.updateTask(this.state.task_name, this.props.listId)
+    } else {
+      const list = { project_id: this.props.project.id }
+      const newList = this.props.createList(list)
+      task = this.updateTask(this.state.task_name, newList.id)
+    }
     if (this.props.formType === 'new') {
       this.props.createTask(task)
       .then(this.props.closeElement)

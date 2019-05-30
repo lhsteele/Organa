@@ -217,8 +217,7 @@ class ProjectShow extends React.Component {
           </div>
           <button 
             className="archive-restore-button"
-            onClick={() => this.setState({ showArchive: false, menuModal: false }),
-            this.handleRestore}>
+            onClick={this.handleRestore}>
             Restore
           </button>
         </div>
@@ -275,18 +274,6 @@ class ProjectShow extends React.Component {
               <NavBarContainer />
             </div>
             {archive}
-            <div className="tasks-main">
-              <div className="tasks-index">
-                {this.props.project ? (
-                  <ListListShowContainer 
-                    projectId={this.props.match.params.projectId}
-                    project={this.props.project}/>
-                ) : null } 
-              </div>
-              <div className="project-description">
-                <label className="description">Description</label>
-                <p className="description-input">{this.props.project.description}</p>
-              </div>
             <div className="tasks">
               {this.props.project.id ? (
                 <ListShowContainer 

@@ -8,7 +8,7 @@ import ProjectDescriptionContainer from '../Projects/project_description_contain
 function TaskModal({ editTaskUI, showDesc, closeElement, project }) {
   let component;
   if (editTaskUI === "new") {
-    component = <CreateTaskFormContainer formType="new"/>
+    component = <CreateTaskFormContainer formType="new" project={project}/>
   } else if (editTaskUI === null) {
     component = <ProjectDescriptionContainer project={project} />
   } else {
