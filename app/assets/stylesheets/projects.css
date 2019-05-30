@@ -137,6 +137,12 @@
   cursor: pointer;
 }
 
+.textarea-input-label:hover {
+  color: #14aaf5;
+  text-decoration: underline;
+}
+
+
 /* .project-item */
 .project-form-description {
   margin-left: 10px;
