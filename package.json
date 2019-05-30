@@ -9,8 +9,10 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.32.0",
     "webpack-cli": "^3.3.2"
   },
@@ -20,8 +22,13 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "8.4.0",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
     "webpack": "webpack --watch --mode=development"
   },
   "repository": {
@@ -34,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/lhsteele/Organa/issues"
   },
-  "homepage": "https://github.com/lhsteele/Organa#readme"
+  "homepage": "https://github.com/lhsteele/Organa#readme",
+  "devDependencies": {
+    "file-loader": "^3.0.1"
+  }
 }

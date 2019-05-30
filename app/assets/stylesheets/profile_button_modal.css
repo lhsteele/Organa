@@ -1,0 +1,103 @@
+.profile-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: transparent;
+  /* z-index: 10; */
+}
+
+.profile-dropdown-button {
+  position: relative;
+  cursor: pointer;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  font-size: small;
+  z-index: 2;
+  background-color: #aa62e3;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.profile-modal-child {
+  position: absolute;
+  top: 70px;
+  right: 15px;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+  border-image: linear-gradient(to right, #32c1ff 50%, #9287ff 100%) 1;
+  border-top: 4px solid;
+  display: flex;
+  flex-direction: column;
+  font-family: Nunito;
+  margin: auto;
+  box-sizing: border-box;
+  margin-top: 25px;
+}
+
+.profile-modal {
+  width: 300px;
+  height: 100px;
+}
+
+/* more dropdown css in navbar */
+.profile-dropdown { 
+  height: 100%;
+  width: 100%;
+} 
+
+.current-project-label {
+  width: 300px;
+  height: 30px;
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid rgb(215, 214, 214);
+}
+
+
+.profile-and-logout .logout-button {
+  width: 300px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-family: Nunito;
+  font-size: 14px;
+  text-align: left;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-hover-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #151b26;
+  color: white;
+  font-size: smaller;
+  width: 90px;
+  height: 45px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  z-index: 1;
+  margin-right: 10px;
+  align-items: center;
+  left: auto; 
+  right: 0;
+}
+
+
+.hover-div:hover .profile-hover-dropdown-content {
+  display: block;
+  z-index: 3;
+}
+
+
+
+
+

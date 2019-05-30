@@ -1,0 +1,99 @@
+
+.splash-div {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: Nunito;
+}
+
+.splash-navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.splash-logo {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.splash-logo-img {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.splash-organa {
+  font-size: x-large;
+}
+
+.splashnav-buttons {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-family: inherit;
+}
+
+.splashnav-login-button {
+  height: 35px;
+  width: 115px;
+  border: none;
+  border-radius: 5px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.splashnav-try-button {
+  margin-left: 10px;
+  height: 35px;
+  width: 115px;
+  background-color: #e66353;
+  border-radius: 5px;
+  font-size: medium;
+  color: white;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.splash-h2 {
+  margin-top: 75px;
+  font-size: -webkit-xxx-large;
+  width: 40%;
+  margin: auto;
+}
+
+.splash-h3 {
+  font-size: x-large;
+  width: 40%;
+  margin: auto;
+  margin-top: 50px;
+  color: rgb(108, 107, 107);
+}
+
+.splash-main-try-button {
+  width: 115px;
+  height: 50px;
+  padding: 0px;
+  font-family: inherit;
+  border-radius: 5px;
+  background-color: #e66353;
+  font-size: medium;
+  color: white;
+  margin: auto;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.asana-splash {
+  margin: auto;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+}

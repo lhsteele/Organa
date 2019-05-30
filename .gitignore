@@ -27,3 +27,5 @@
 /config/master.key
 
 /tmp
+bundle.js 
+bundle.js.map

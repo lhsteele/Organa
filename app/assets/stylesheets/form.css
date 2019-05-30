@@ -1,0 +1,140 @@
+.user-auth-form {
+  background-color: rgb(227, 227, 227);
+  height: 700px;
+  width: 700px;
+  display: flex;
+  margin: auto;
+  font-family: Nunito;
+  flex-direction: column;
+  /* align-content: center; */
+}
+
+.user-auth-box {
+  height: 700px;
+  width: 700px;
+}
+
+.close-x {
+  display: flex;
+  justify-content: flex-end;
+  padding: 35px 35px 0px 35px;
+  cursor: pointer;
+  font-size: x-large;
+  color: rgb(191, 191, 191);
+}
+
+.user-auth-form h3 {
+  margin-bottom: 20px;
+  font-size: -webkit-xxx-large;
+}
+
+.user-auth-form h4 {
+  font-size: large;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 50px;
+  color: rgb(133, 133, 133);
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  background-color: rgb(227, 227, 227);
+  height: 350px;
+  width: 450px;
+  border: 1px black;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+}
+
+.user-auth-label {
+  color: rgb(108, 107, 107);
+  font-size: large;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.login-input {
+  margin: 10px auto;
+  width: 450px;
+  height: 35px;
+  position: relative;
+  padding-left: 10px;
+  font-size: medium;
+  font-family: Nunito;
+  box-sizing: border-box;
+}
+
+.login-input-name {
+  margin: 10px auto;
+  width: 215px;
+  height: 35px;
+  position: relative;
+  padding-left: 10px;
+  font-size: medium;
+  font-family: Nunito;
+  box-sizing: border-box;
+}
+
+.first-last-name-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-auth-form-submit {
+  width: 450px;
+  height: 35px;
+  background-color: #e66353;
+  font-size: medium;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.user-auth-form h6 {
+  font-size: small;
+  color: rgb(133, 133, 133);
+}
+
+.error-message {
+  margin-top: 10px;
+  font-size: small;
+  color: red;
+}
+
+.dha-signup-button {
+  color: rgb(133, 133, 133);
+}
+
+.sign-up {
+  color: #aa62e3;
+}
+
+.leia-demo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  color: rgb(133, 133, 133);
+  height: 50px;
+  margin-top: 20px;
+  margin: auto;
+  width: 200px;
+}
+
+.leia-button {
+  margin: 0;
+  left: 285px;
+  height: 20px;
+}
+
+.leia-profile-pic {
+  height: 50px;
+  width: 50px;
+  left: 225px;
+}

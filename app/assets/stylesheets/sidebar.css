@@ -1,0 +1,100 @@
+.homepage-sidebar {
+  position: relative;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.sidebar-menu {
+  padding-top: 20px;
+  display: flex;
+  /* text-align: left; */
+  flex-direction: column;
+  flex-direction: column;
+  border-bottom: .1px solid rgb(47, 47, 47);
+}
+
+.sidebar-menu-home {
+  height: 35px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.sidebar-menu-home .home-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebar-menu-home .sidebar-home-img {
+  width: 25px;
+  height: auto;
+  padding: 10px;
+}
+
+.sidebar-placeholder-li {
+  height: 35px;
+  width: 100%;
+}
+
+.fav-reports-features-placeholder {
+  height:140px;
+  width: 100%;
+  border-bottom: .1px solid rgb(47, 47, 47);
+}
+
+.sidebar-team-section {
+  height: 35px;
+  width: 85%;
+  border-bottom: .1px solid rgb(47, 47, 47);
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.sidebar-team-link {  
+  text-decoration: none;
+  color: white;
+  text-align: left;
+  font-size: 14px;
+}
+
+.side-bar-projects-ul {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.homepage-sidebar .sidebar-projects-list-link {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.img-container {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  margin: auto;
+  width: 100%;
+}
+
+.sidebar-img {
+  display: flex;
+  margin: auto;
+}
+
+.sidebar-projects-list-items {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.sidebar-proj-list-tile {
+  width: 8px;
+  height: auto;
+  border-radius: 1px;
+  padding-right: 10px;
+}

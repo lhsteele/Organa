@@ -1,0 +1,87 @@
+.window {
+  height: 100vh;
+}
+
+.homepage-main {
+  display: grid;
+  grid-template-columns: 15% auto;
+  font-family: Nunito;
+  height: 100%;
+}
+
+.homepage-sidebar {
+  padding-top: 15px;
+  background-color: #151b26;
+}
+
+.sidebar-logo-group {
+  display: flex;
+  padding-left: 15px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.home-logo-img {
+  height: 30px;
+  width: 30px;
+  padding-right: 5px;
+}
+
+.home-organa {
+  font-size: larger;
+  color: white;
+}
+
+.homepage-main .tasks-section {
+  height: 100px;
+  padding: 50px 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.homepage-main .recent-projects-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 50px;
+}
+
+.tasks-projects-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.outer-tasks-projects-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tasks-section-label {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(215, 214, 214);
+}
+
+.recent-projects-label-group {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(215, 214, 214);
+}
+
+.recent-projects-label-group img {
+  width: 8px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.recent-projects-label {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
