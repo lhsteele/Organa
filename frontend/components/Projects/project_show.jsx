@@ -46,9 +46,6 @@ class ProjectShow extends React.Component {
     this.props.archiveProject(this.props.project.id);
   }
 
-  // onClick = {() => this.setState({ showArchive: true, menuModal: false, archived: true }),
-  //   this.handleArchive}>
-
   handleRestore(e) {
     this.setState({ showArchive: false, menuModal: false });
     this.props.archiveProject(this.props.project.id);
@@ -261,7 +258,7 @@ class ProjectShow extends React.Component {
               <div className="show-nav-left">
                 <img 
                   className="project-color-tile " 
-                  src={window.tileURL} />
+                  src={window.projectShowTileURL} />
                 <label className="show-label">{this.props.project.name}</label>
                 <img 
                   className="grey-dots" 

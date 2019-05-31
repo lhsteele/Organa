@@ -33,18 +33,17 @@ class NavBar extends React.Component {
       {
         list_id: list_id,
         task_name: task_name,
-        // section_name: this.state.section_name || "",
-        task_body: this.state.task_body || "",
-        // complete: false
+        task_body: this.state.task_body || ""
       }
     )
   }
 
   handleSubmit(e) {
     e.stopPropagation();
-    let list = this.props.requestLists(this.state.project)[0]
-    this.setState({ task: {list_id: list}})
-    this.props.createTask(this.state.task)
+    let task = this.props.requestLists(this.state.project.id)
+      .then(this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id))
+    debugger
+    this.props.createTask(task)
   }
 
   updateForm(field) {

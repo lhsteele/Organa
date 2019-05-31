@@ -27,7 +27,7 @@ export const logout = () => dispatch => SessionApiUtil.logout()
 export const signup = user => dispatch => SessionApiUtil.signup(user)
   .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)));
 
-const demo = {password: "password", email: "leia@test.com"}
+const demo = {password: "password", email: "leia@yavin.com"}
 
 export const loginDemo = () => dispatch => SessionApiUtil.login(demo)
   .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)));
