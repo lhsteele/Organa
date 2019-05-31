@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Task.destroy_all
-List.destroy_all
-Project.destroy_all
+# Task.destroy_all
+# List.destroy_all
+# Project.destroy_all
 
 users = User.create([
   { first_name: "Luke", last_name: "Skywalker", email: "luke@yavin.com", password: "password" },
@@ -23,16 +23,16 @@ projects = Project.create([
 ])
 
 list = List.create([
-  { project_id: 1 },
-  { project_id: 2 },
-  { project_id: 3 },
+  { project_id: 8 },
+  { project_id: 9 },
+  { project_id: 10 },
 ])
 
-tasks = Task.create([
-  { task_name: "Wedge to approve fixes to Red Two.", complete: false, list_id: 1 },
-  { task_name: "Testing fixes to Red Five.", complete: false, list_id: 1 },
-  { task_name: "Engineers to adapt airspeeders to subzero temps.", complete: false, list_id: 2 },
-  { task_name: "Build pens for Tauntauns", complete: false, list_id: 2 },
-  { task_name: "Place hypertransceivers in the Corva sector.", complete: false, list_id: 3 },
-  { task_name: "Send message for rendez-vous over Sullust.", complete: false, list_id: 3 },
-])
+# tasks = Task.create([
+#   { task_name: "Wedge to approve fixes to Red Two.", complete: false, list_id: 1 },
+#   { task_name: "Testing fixes to Red Five.", complete: false, list_id: 1 },
+#   { task_name: "Engineers to adapt airspeeders to subzero temps.", complete: false, list_id: 2 },
+#   { task_name: "Build pens for Tauntauns", complete: false, list_id: 2 },
+#   { task_name: "Place hypertransceivers in the Corva sector.", complete: false, list_id: 3 },
+#   { task_name: "Send message for rendez-vous over Sullust.", complete: false, list_id: 3 },
+# ])
