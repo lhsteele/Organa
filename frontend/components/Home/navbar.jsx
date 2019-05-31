@@ -39,11 +39,12 @@ class NavBar extends React.Component {
   }
 
   handleSubmit(e) {
-    e.stopPropagation();
-    let task = this.props.requestLists(this.state.project.id)
-      .then(this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id))
     debugger
+    e.stopPropagation();
+    this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id)
     this.props.createTask(task)
+
+    // this.props.createTask(task)
   }
 
   updateForm(field) {
@@ -74,6 +75,8 @@ class NavBar extends React.Component {
       showProjectsModal: false, 
       project: project
     })
+    this.props.requestLists(this.state.project.id)
+    debugger
   }
 
   render() {

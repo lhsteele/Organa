@@ -8,7 +8,7 @@ class TaskForm extends React.Component {
     super(props)
     this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleX = this.handleX.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
 
@@ -35,7 +35,7 @@ class TaskForm extends React.Component {
     }
   }
 
-  handleX(e) {
+  handleSubmit(e) {
     e.stopPropagation();
     let task = this.updateTask(this.state.task_name, this.props.listId)
     if (this.props.formType === 'new') {
@@ -57,14 +57,15 @@ class TaskForm extends React.Component {
     return (
       <form className="task-form">
         <div className="task-edit-nav">
-          <button className="complete-button"
+          <button type="button" 
+            className="complete-button"
             onClick={this.handleDelete}>
             <img 
               src={window.onlyCheckURL} 
               className="only-check-img"/>
             Mark Complete
           </button>
-          <div onClick={this.handleX} className="task-close-x">X</div>
+          <div onClick={this.props.closeElement} className="task-close-x">X</div>
         </div>
         <div className='task-form-body'>
           <input 
@@ -80,6 +81,12 @@ class TaskForm extends React.Component {
               onChange={this.updateForm("task_body")}>
             </p>
           </div>
+          <button 
+            type="submit" 
+            onClick={this.handleSubmit}
+            className="new-task-save-button">
+            Save
+          </button>
         </div>
       </form>
     )

@@ -198,7 +198,7 @@
   position: absolute;
   bottom: 15px;
   right: 15px;
-    height: 30px;
+  height: 30px;
   font-size: 13px;
   font-family: Nunito;
   color: #a09f9f;
@@ -238,4 +238,15 @@
 .project-modal-li {
   padding: 5px;
   cursor: pointer;
+}
+
+.new-task-save-button {
+  position: absolute;
+  width: 90px;
+  justify-content: center;
+  display: flex;
+  bottom: 10px;
+  right: 10px;
+  font-family: Nunito;
+  color: grey;
 }

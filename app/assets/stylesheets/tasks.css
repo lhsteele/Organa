@@ -49,6 +49,7 @@
   margin-top: 15px;
   border-radius: 5px;
   border: 1px solid #dedede;
+  position: relative;
 }
 
 .task-edit-nav {
