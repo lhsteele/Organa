@@ -7,32 +7,32 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Task.destroy_all
-List.destroy_all
+# List.destroy_all
 # Project.destroy_all
 
-users = User.create([
-  { first_name: "Luke", last_name: "Skywalker", email: "luke@yavin.com", password: "password" },
-  { first_name: "Han", last_name: "Solo", email: "han@yavin.com", password: "password" },
-  { first_name: "Gial", last_name: "Ackbar", email: "gial@yavin.com", password: "password" },
-])
-
-projects = Project.create([
-  { name: "Red Squadron X-wing repairs", owner_id: 6, description: "Red Two and Red Five ships are badly damaged." },
-  { name: "Preparations for Echo Base", owner_id: 6, description: "Source provisions to accommodate Hoth's inhospitable climate." },
-  { name: "Yellow Moon", owner_id: 6, description: "Preparing for mission on Endor" },
-])
-
-list = List.create([
-  { project_id: 8 },
-  { project_id: 9 },
-  { project_id: 10 },
-])
-
-# tasks = Task.create([
-#   { task_name: "Wedge to approve fixes to Red Two.", complete: false, list_id: 2 },
-#   { task_name: "Testing fixes to Red Five.", complete: false, list_id: 2 },
-#   { task_name: "Engineers to adapt airspeeders to subzero temps.", complete: false, list_id: 3 },
-#   { task_name: "Build pens for Tauntauns", complete: false, list_id: 3 },
-#   { task_name: "Place hypertransceivers in the Corva sector.", complete: false, list_id: 10 },
-#   { task_name: "Send message for rendez-vous over Sullust.", complete: false, list_id: 10 },
+# users = User.create([
+#   { first_name: "Luke", last_name: "Skywalker", email: "luke@yavin.com", password: "password" },
+#   { first_name: "Han", last_name: "Solo", email: "han@yavin.com", password: "password" },
+#   { first_name: "Gial", last_name: "Ackbar", email: "gial@yavin.com", password: "password" },
 # ])
+
+# projects = Project.create([
+#   { name: "Red Squadron X-wing repairs", owner_id: 6, description: "Red Two and Red Five ships are badly damaged." },
+#   { name: "Preparations for Echo Base", owner_id: 6, description: "Source provisions to accommodate Hoth's inhospitable climate." },
+#   { name: "Yellow Moon", owner_id: 6, description: "Preparing for mission on Endor" },
+# ])
+
+# list = List.create([
+#   { project_id: 8 },
+#   { project_id: 9 },
+#   { project_id: 10 },
+# ])
+
+tasks = Task.create([
+  { task_name: "Wedge to approve fixes to Red Two.", complete: false, list_id: 8 },
+  { task_name: "Testing fixes to Red Five.", complete: false, list_id: 8 },
+  { task_name: "Engineers to adapt airspeeders to subzero temps.", complete: false, list_id: 9 },
+  { task_name: "Build pens for Tauntauns", complete: false, list_id: 9 },
+  { task_name: "Place hypertransceivers in the Corva sector.", complete: false, list_id: 10 },
+  { task_name: "Send message for rendez-vous over Sullust.", complete: false, list_id: 10 },
+])
