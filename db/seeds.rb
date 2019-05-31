@@ -28,11 +28,11 @@ list = List.create([
   { project_id: 10 },
 ])
 
-# tasks = Task.create([
-#   { task_name: "Wedge to approve fixes to Red Two.", complete: false, list_id: 1 },
-#   { task_name: "Testing fixes to Red Five.", complete: false, list_id: 1 },
-#   { task_name: "Engineers to adapt airspeeders to subzero temps.", complete: false, list_id: 2 },
-#   { task_name: "Build pens for Tauntauns", complete: false, list_id: 2 },
-#   { task_name: "Place hypertransceivers in the Corva sector.", complete: false, list_id: 3 },
-#   { task_name: "Send message for rendez-vous over Sullust.", complete: false, list_id: 3 },
-# ])
+tasks = Task.create([
+  { task_name: "Wedge to approve fixes to Red Two.", complete: false, list_id: 8 },
+  { task_name: "Testing fixes to Red Five.", complete: false, list_id: 8 },
+  { task_name: "Engineers to adapt airspeeders to subzero temps.", complete: false, list_id: 9 },
+  { task_name: "Build pens for Tauntauns", complete: false, list_id: 9 },
+  { task_name: "Place hypertransceivers in the Corva sector.", complete: false, list_id: 10 },
+  { task_name: "Send message for rendez-vous over Sullust.", complete: false, list_id: 10 },
+])
