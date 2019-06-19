@@ -25,9 +25,9 @@ class TaskForm extends React.Component {
     )
   }
 
-  handleSubmit(e) {
-    this.props.submitEvent(this.state)
-  }
+  // handleSubmit(e) {
+  //   this.props.submitEvent(this.state)
+  // }
 
   updateForm(field) {
     return (e) => {

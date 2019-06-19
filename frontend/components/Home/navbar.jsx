@@ -11,11 +11,7 @@ class NavBar extends React.Component {
       userProjects: [],
       projectButtonName: 'Project',
       project: {},
-      // task: {
-      //   task_name: "",
-      //   complete: false, 
-      //   list_id: props.listId
-      // }
+      task: {}
     }
     this.handleClearModal = this.handleClearModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,22 +25,20 @@ class NavBar extends React.Component {
   }
 
   prepTaskForCreate(task_name, list_id) {
-    return (
-      {
+    setState ({
+      task: {
         list_id: list_id,
         task_name: task_name,
         task_body: this.state.task_body || ""
       }
-    )
+    })
   }
 
   handleSubmit(e) {
     debugger
     e.stopPropagation();
-    this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id)
-    this.props.createTask(task)
-
-    // this.props.createTask(task)
+    // this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id)
+    this.props.createTask(this.state.task)
   }
 
   updateForm(field) {
@@ -76,7 +70,7 @@ class NavBar extends React.Component {
       project: project
     })
     this.props.requestLists(this.state.project.id)
-    debugger
+      .then(() => this.prepTaskForCreate(this.state.task_name, this.props.lists[0].id))
   }
 
   render() {
