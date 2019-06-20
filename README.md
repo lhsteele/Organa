@@ -48,6 +48,8 @@ Organa is built with a PostGres Database and Rails in the backend, and React/Red
   * Page layout and core user interaction built to mimic that of Asana.
   * Modals in multiple areas of the app, implemented using two different techniques. 
   * Created all of the icons that are not Star Wars related.
+  
+  ![Detail](/images/ProjectIndexDetail.png)
 
 ### Modals:
 There are multiple modals in the app, which I chose to implement in two different ways.
