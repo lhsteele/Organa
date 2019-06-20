@@ -10,6 +10,7 @@ https://organa-app.herokuapp.com/#/
 
 Organa is built with a PostGres Database and Rails in the backend, and React/Redux/Javascript in the front end. 
 
+![Hero](/images/READMEHero.png)
 
 ### Key Features:
 
