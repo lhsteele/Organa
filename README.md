@@ -10,7 +10,11 @@ https://organa-app.herokuapp.com/#/
 
 Organa is built with a PostGres Database and Rails in the backend, and React/Redux/Javascript in the front end. 
 
+
+
 ![Hero](/images/READMEHero.png)
+
+
 
 ### Key Features:
 
@@ -49,7 +53,11 @@ Organa is built with a PostGres Database and Rails in the backend, and React/Red
   * Modals in multiple areas of the app, implemented using two different techniques. 
   * Created all of the icons that are not Star Wars related.
   
-  ![Detail](/images/ProjectIndexDetail.png)
+  
+  
+  ![Detail](/images/ProjectIdxDetail.png)
+  
+  
 
 ### Modals:
 There are multiple modals in the app, which I chose to implement in two different ways.
