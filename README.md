@@ -1,7 +1,7 @@
 ## Organa
 
 
-### Organa is a tongue-in-cheek Star Wars themed clone of Asana, a work managment tool.
+### Organa is a tongue-in-cheek Star Wars themed clone of Asana, a work management tool.
 Asana allows users to create and manage projects, assign tasks to team members, and track the progress of a project.
 
 
