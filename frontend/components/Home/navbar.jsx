@@ -35,9 +35,11 @@ class NavBar extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
+    
     e.stopPropagation();
     // this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id)
+    console.log(this.state.task)
+    debugger
     this.props.createTask(this.state.task)
   }
 
@@ -70,7 +72,11 @@ class NavBar extends React.Component {
       project: project
     })
     this.props.requestLists(project.id)
-      .then(lists => this.prepTaskForCreate(this.state.task_name, lists[0]))
+      // .then(lists => this.prepTaskForCreate(this.state.task_name, lists[0])
+      .then(lists => console.log(lists))
+      
+
+    
   }
 
   render() {
