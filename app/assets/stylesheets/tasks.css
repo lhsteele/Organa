@@ -19,6 +19,7 @@
   color: white;
   font-family: Nunito;
   font-size: small;
+  cursor: pointer;
 }
 
 .tasks-ul {
@@ -75,6 +76,7 @@
   align-content: center;
   align-items: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .task-close-x {
