@@ -25,7 +25,7 @@ class NavBar extends React.Component {
   }
 
   prepTaskForCreate(task_name, list_id) {
-    setState ({
+    this.setState ({
       task: {
         list_id: list_id,
         task_name: task_name,
@@ -69,8 +69,8 @@ class NavBar extends React.Component {
       showProjectsModal: false, 
       project: project
     })
-    this.props.requestLists(this.state.project.id)
-      .then(() => this.prepTaskForCreate(this.state.task_name, this.props.lists[0].id))
+    this.props.requestLists(project.id)
+      .then(lists => this.prepTaskForCreate(this.state.task_name, lists[0]))
   }
 
   render() {
