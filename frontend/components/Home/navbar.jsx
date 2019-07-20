@@ -17,6 +17,7 @@ class NavBar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleProjectsButtonClick = this.handleProjectsButtonClick.bind(this);
     this.handleSelectProjectClick = this.handleSelectProjectClick.bind(this);
+    this.prepTaskForCreate = this.prepTaskForCreate.bind(this);
   }
 
   handleClearModal(e) {
@@ -24,20 +25,20 @@ class NavBar extends React.Component {
     this.setState({ showNewButtonModal: false })
   }
 
-  prepTaskForCreate(task_name, list_id) {
+  prepTaskForCreate(list_id) {
     this.setState ({
       task: {
         list_id: list_id,
-        task_name: task_name,
-        task_body: this.state.task_body || ""
+        task_name: this.state.task.task_name,
+        task_body: this.state.task.task_body || ""
       }
     })
+    console.log(this.state.task)
   }
 
   handleSubmit(e) {
-    
     e.stopPropagation();
-    // this.prepTaskForCreate(this.state.task_name, this.props.lists[0].list.id)
+    // this.prepTaskForCreate(Object.keys(lists)[0])
     console.log(this.state.task)
     debugger
     this.props.createTask(this.state.task)
@@ -72,10 +73,12 @@ class NavBar extends React.Component {
       project: project
     })
     this.props.requestLists(project.id)
-      // .then(lists => this.prepTaskForCreate(this.state.task_name, lists[0])
-      .then(lists => console.log(lists))
-      
-
+      .then(lists => this.prepTaskForCreate(Object.keys(lists)[0]))
+      // .then(lists => this.setState({
+      //   task: {
+      //     list_id: Object.keys(lists)[0]
+      //   }
+      // }))
     
   }
 
@@ -164,6 +167,7 @@ class NavBar extends React.Component {
             <div>
               <textarea 
                 type="text"
+                onChange={this.updateForm("task_body")}
                 className="description-input"
                 placeholder="Description"/>
               <input 
