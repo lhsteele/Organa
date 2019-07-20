@@ -11,7 +11,10 @@ class NavBar extends React.Component {
       userProjects: [],
       projectButtonName: 'Project',
       project: {},
-      task: {}
+      task: {
+        task_name: "",
+        task_body: ""
+      }
     }
     this.handleClearModal = this.handleClearModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +32,7 @@ class NavBar extends React.Component {
     this.setState ({
       task: {
         list_id: list_id,
-        task_name: this.state.task.task_name,
+        task_name: this.state.task.task_name || "",
         task_body: this.state.task.task_body || ""
       }
     })
@@ -39,7 +42,7 @@ class NavBar extends React.Component {
   handleSubmit(e) {
     e.stopPropagation();
     // this.prepTaskForCreate(Object.keys(lists)[0])
-    console.log(this.state.task)
+    // console.log(this.state.task)
     debugger
     this.props.createTask(this.state.task)
   }
@@ -79,7 +82,7 @@ class NavBar extends React.Component {
       //     list_id: Object.keys(lists)[0]
       //   }
       // }))
-    
+    // console.log(this.state.task)
   }
 
   render() {
@@ -149,7 +152,8 @@ class NavBar extends React.Component {
               type="text"
               placeholder="Task Name"
               onChange={this.updateForm("task_name")}
-              className="new-task-name-input" />
+              className="new-task-name-input" 
+              value={this.state.task.task_name} />
             
             <div className="new-task-form-labels">
               <label className="new-task-for">For</label>
@@ -169,7 +173,8 @@ class NavBar extends React.Component {
                 type="text"
                 onChange={this.updateForm("task_body")}
                 className="description-input"
-                placeholder="Description"/>
+                placeholder="Description"
+                value={this.state.task.task_body} />
               <input 
                 type="submit"
                 value="Create Task"
