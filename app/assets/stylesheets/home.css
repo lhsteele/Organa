@@ -10,8 +10,11 @@
 }
 
 .homepage-sidebar {
+  display: flex;  
+  flex-direction: column;
   padding-top: 15px;
   background-color: #151b26;
+  min-width: 15%;
 }
 
 .sidebar-logo-group {

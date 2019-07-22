@@ -1,9 +1,3 @@
-.homepage-sidebar {
-  position: relative;
-  /* display: flex;
-  justify-content: center; */
-}
-
 .sidebar-menu {
   padding-top: 20px;
   display: flex;
@@ -79,12 +73,12 @@
   bottom: 0;
   display: flex;
   margin: auto;
-  width: 100%;
 }
 
 .sidebar-img {
   display: flex;
   margin: auto;
+  min-width: 100%;
 }
 
 .sidebar-projects-list-items {

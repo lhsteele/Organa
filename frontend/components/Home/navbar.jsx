@@ -28,28 +28,28 @@ class NavBar extends React.Component {
     this.setState({ showNewButtonModal: false })
   }
 
-  prepTaskForCreate(list_id) {
-    this.setState ({
-      task: {
-        list_id: list_id,
-        task_name: this.state.task.task_name || "",
-        task_body: this.state.task.task_body || ""
+  prepTaskForCreate() {
+    return (
+      {
+        list_id: this.state.project.listIds[0],
+        task_name: this.state.task.task_name,
+        task_body: this.state.task.task_body
       }
-    })
-    console.log(this.state.task)
+    )
   }
 
   handleSubmit(e) {
     e.stopPropagation();
-    // this.prepTaskForCreate(Object.keys(lists)[0])
-    // console.log(this.state.task)
-    debugger
-    this.props.createTask(this.state.task)
+    let task = this.prepTaskForCreate()
+    console.log(task)
+    this.props.createTask(task)
   }
 
   updateForm(field) {
     return (e) => {
-      this.setState({ task: { [field]: e.target.value } })
+      const task = this.state.task
+      task[field] = e.target.value
+      this.setState({ task: task } )
     }
   }
 
@@ -76,13 +76,6 @@ class NavBar extends React.Component {
       project: project
     })
     this.props.requestLists(project.id)
-      .then(lists => this.prepTaskForCreate(Object.keys(lists)[0]))
-      // .then(lists => this.setState({
-      //   task: {
-      //     list_id: Object.keys(lists)[0]
-      //   }
-      // }))
-    // console.log(this.state.task)
   }
 
   render() {
@@ -150,10 +143,10 @@ class NavBar extends React.Component {
             className="nav-bar-new-task-form">
             <input 
               type="text"
+              value={this.state.task.task_name}
               placeholder="Task Name"
               onChange={this.updateForm("task_name")}
-              className="new-task-name-input" 
-              value={this.state.task.task_name} />
+              className="new-task-name-input" />
             
             <div className="new-task-form-labels">
               <label className="new-task-for">For</label>
@@ -170,11 +163,10 @@ class NavBar extends React.Component {
             </div>
             <div>
               <textarea 
-                type="text"
                 onChange={this.updateForm("task_body")}
+                value={this.state.task.task_body}
                 className="description-input"
-                placeholder="Description"
-                value={this.state.task.task_body} />
+                placeholder="Description" />
               <input 
                 type="submit"
                 value="Create Task"
