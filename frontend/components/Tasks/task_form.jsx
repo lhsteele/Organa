@@ -40,7 +40,7 @@ class TaskForm extends React.Component {
     let task = this.updateTask(this.state.task_name, this.props.listId)
     if (this.props.formType === 'new') {
       this.props.createTask(task)
-      .then(this.props.closeElement)
+        .then(this.props.closeElement)
     } else {
       this.props.updateTask(task)
         .then(this.props.closeElement)

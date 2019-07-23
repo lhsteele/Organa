@@ -33,7 +33,9 @@ class NavBar extends React.Component {
       {
         list_id: this.state.project.listIds[0],
         task_name: this.state.task.task_name,
-        task_body: this.state.task.task_body
+        task_body: this.state.task.task_body,
+        section_name: this.state.section_name || "",
+        complete: false
       }
     )
   }
@@ -43,6 +45,7 @@ class NavBar extends React.Component {
     let task = this.prepTaskForCreate()
     console.log(task)
     this.props.createTask(task)
+      .then(this.setState({ newTaskModal: false }))
   }
 
   updateForm(field) {
@@ -143,7 +146,7 @@ class NavBar extends React.Component {
             className="nav-bar-new-task-form">
             <input 
               type="text"
-              value={this.state.task.task_name}
+              // value={this.state.task.task_name}
               placeholder="Task Name"
               onChange={this.updateForm("task_name")}
               className="new-task-name-input" />
@@ -164,7 +167,7 @@ class NavBar extends React.Component {
             <div>
               <textarea 
                 onChange={this.updateForm("task_body")}
-                value={this.state.task.task_body}
+                // value={this.state.task.task_body}
                 className="description-input"
                 placeholder="Description" />
               <input 
