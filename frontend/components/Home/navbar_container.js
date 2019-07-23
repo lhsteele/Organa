@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions'
-import { createTask } from '../../actions/task_actions';
+import { createTask, requestTasks } from '../../actions/task_actions';
 import { requestProjects } from '../../actions/project_actions';
 import { requestLists } from '../../actions/list_actions';
 import NavBar from './navbar';
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
   requestProjects: () => dispatch(requestProjects()), 
   createTask: task => dispatch(createTask(task)),
   requestProjects: () => dispatch(requestProjects()),
-  requestLists: project => dispatch(requestLists(project))
+  requestLists: project => dispatch(requestLists(project)),
+  requestTasks: listId => dispatch(requestTasks(listId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar)

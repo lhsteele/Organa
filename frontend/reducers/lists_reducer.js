@@ -18,7 +18,7 @@ const listsReducer = (state={}, action) => {
     case RECEIVE_LISTS:
       return action.lists
     case RECEIVE_LIST:
-      return Object.assign({}, state, {[action.list.id]: action.list})
+      return merge({}, state, {[action.list.id]: action.list})
     case REMOVE_LIST: 
       let newState = Object.assign({}, state);
       delete newState[action.listId];

@@ -3,17 +3,19 @@ import {
   RECEIVE_TASK,
   REMOVE_TASK
 } from '../actions/task_actions';
-
+import { merge } from 'lodash';
 
 const tasksReducer = (state={}, action) => {
   Object.freeze(state);
+  let newState;
+  let task;
   switch(action.type) {
     case RECEIVE_TASKS:
       return action.tasks
     case RECEIVE_TASK:
-      return Object.assign({}, state, {[action.task.id]: action.task})
+      return merge({}, state, {[action.task.id]: action.task})
     case REMOVE_TASK:
-      let newState = Object.assign({}, state);
+      newState = Object.assign({}, state);
       delete newState[action.taskId]
       return newState;
     default: 

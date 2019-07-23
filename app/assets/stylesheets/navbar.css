@@ -59,7 +59,7 @@
   position: absolute;
   margin-top: 10px;
   text-align: left;
-  z-index: 3;
+  z-index: 1000;
   background-color: white;
 }
 

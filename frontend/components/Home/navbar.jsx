@@ -23,6 +23,10 @@ class NavBar extends React.Component {
     this.prepTaskForCreate = this.prepTaskForCreate.bind(this);
   }
 
+  // componentDidUpdate() {
+  //   this.props.requestTasks
+  // }
+
   handleClearModal(e) {
     e.stopPropagation();
     this.setState({ showNewButtonModal: false })
@@ -46,6 +50,7 @@ class NavBar extends React.Component {
     console.log(task)
     this.props.createTask(task)
       .then(this.setState({ newTaskModal: false }))
+      .then(this.props.requestTasks(task.list_id))
   }
 
   updateForm(field) {
@@ -96,7 +101,7 @@ class NavBar extends React.Component {
           <div className="new-button-dropdown">
             <ul className="new-button-ul">
               <li key={1}
-                onClick={() => this.setState({ newTaskModal: true })}>
+                onClick={() => this.setState({ newTaskModal: true, showNewButtonModal: false })}>
                 <img className="checkbox" src={window.checkURL} />
                 Task
               </li>
