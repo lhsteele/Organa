@@ -40,4 +40,4 @@ class ProfileButtonModal extends React.Component {
 
 }
 
-export default ProfileButtonModal;
+export default withRouter(ProfileButtonModal);
