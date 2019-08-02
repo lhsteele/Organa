@@ -15,6 +15,7 @@ class ProjectForm extends React.Component {
       }
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.exitForm = this.exitForm.bind(this)
   }
 
   handleSubmit(e) {
@@ -27,6 +28,10 @@ class ProjectForm extends React.Component {
     return (e) => {
       this.setState({ [field]: e.target.value })
     }
+  }
+
+  exitForm() {
+    this.props.history.push("/home")
   }
 
   render() {
@@ -44,8 +49,8 @@ class ProjectForm extends React.Component {
     return (
       <div className="new-project-form-container">
         <div className="new-project-form-header">
-          <img className="project-form-back-arrow" src={window.backArrow}/>
-          <img className="project-form-close-x" src={window.closeX}/>
+          <img onClick={this.exitForm} src={window.backArrow} className="new-project-back-arrow" />
+          <img onClick={this.exitForm} src={window.closeX} className="new-project-close-x" />
         </div>
         <form onSubmit={this.handleSubmit}
           className="new-project-form">
@@ -73,4 +78,4 @@ class ProjectForm extends React.Component {
   }
 }
 
-export default ProjectForm;
+export default withRouter(ProjectForm);

@@ -24,6 +24,14 @@
   margin: 20px;
 }
 
+.new-project-back-arrow {
+  cursor: pointer;
+}
+
+.new-project-close-x {
+  cursor: pointer;
+}
+
 .new-project-label {
   padding: 20px;
   font-size: 18px;
