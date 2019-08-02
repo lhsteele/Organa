@@ -43,6 +43,10 @@ class ProjectForm extends React.Component {
     } 
     return (
       <div className="new-project-form-container">
+        <div className="new-project-form-header">
+          <img className="project-form-back-arrow" src={window.backArrow}/>
+          <img className="project-form-close-x" src={window.closeX}/>
+        </div>
         <form onSubmit={this.handleSubmit}
           className="new-project-form">
           <label className="new-project-label">Add project details</label>

@@ -18,6 +18,12 @@
   font-family: Nunito;
 }
 
+.new-project-form-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
 .new-project-label {
   padding: 20px;
   font-size: 18px;
