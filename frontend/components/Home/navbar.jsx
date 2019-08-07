@@ -14,7 +14,9 @@ class NavBar extends React.Component {
       task: {
         task_name: "",
         task_body: ""
-      }
+      },
+      firstInitial: this.props.first_name[0] || "",
+      lastInitial: this.props.last_name[0] || ""
     }
     this.handleClearModal = this.handleClearModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -87,8 +89,9 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const firstInitial = this.props.first_name[0]
-    const lastInitial = this.props.last_name[0]
+    // const firstInitial = this.props.first_name[0] 
+    // const lastInitial = this.props.last_name[0] 
+
 
     let modal;
     if (this.state.showNewButtonModal === true) {
@@ -202,7 +205,9 @@ class NavBar extends React.Component {
             <button
               className="profile-dropdown-button"
               onClick={() => this.props.openModal('profile')}>
-              {firstInitial}{lastInitial}
+              {this.state.firstInitial}{this.state.lastInitial}
+              {/* {this.props.first_name[0]}{this.props.last_name[0]} */}
+              {/* {firstInitial}{lastInitial} */}
             </button>
             <div className="profile-hover-dropdown-content">
               <label>

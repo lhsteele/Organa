@@ -18,8 +18,8 @@ class Home extends React.Component {
   // }
 
   render() {
-    const firstInitial = this.props.first_name[0]
-    const lastInitial = this.props.last_name[0]
+    // const firstInitial = this.props.first_name[0]
+    // const lastInitial = this.props.last_name[0]
 
 
     return (
