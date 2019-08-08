@@ -10,7 +10,8 @@ class ProfileButtonModal extends React.Component {
   }
 
   handleLogout(e) {
-    e.preventDefault()
+    // e.preventDefault()
+    e.stopPropagation()
     this.props.logoutUser().then(this.props.closeModal)
       .then(() => this.props.history.push("/"));
   }
