@@ -146,8 +146,8 @@ class NavBar extends React.Component {
             <div className="new-task-form-labels">
               <label className="new-task-for">For</label>
               <label className="user-name">
-                <div className="new-task-initials">{firstInitial}{lastInitial}</div>
-                {firstInitial}{lastInitial}
+                <div className="new-task-initials">{this.state.firstInitial}{this.state.lastInitial}</div>
+                {this.state.firstInitial}{this.state.lastInitial}
               </label>
               <label className="in">in</label>
               <div 
