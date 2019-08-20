@@ -11,18 +11,12 @@ class NavBar extends React.Component {
       userProjects: [],
       projectButtonName: 'Project',
       project: {},
-      task: {
-        task_name: "",
-        task_body: ""
-      },
-      firstInitial: this.props.first_name[0] || "",
-      lastInitial: this.props.last_name[0] || ""
+      task: {}
     }
     this.handleClearModal = this.handleClearModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleProjectsButtonClick = this.handleProjectsButtonClick.bind(this);
     this.handleSelectProjectClick = this.handleSelectProjectClick.bind(this);
-    this.prepTaskForCreate = this.prepTaskForCreate.bind(this);
   }
 
 
@@ -32,31 +26,23 @@ class NavBar extends React.Component {
   }
 
   prepTaskForCreate() {
-    return (
-      {
-        list_id: this.state.project.listIds[0],
-        task_name: this.state.task.task_name,
-        task_body: this.state.task.task_body,
-        section_name: this.state.section_name || "",
-        complete: false
+    setState({
+      task: {
+        list_id: list_id,
+        task_name: task_name,
+        task_body: this.state.task_body || ""
       }
-    )
+    })
   }
 
   handleSubmit(e) {
     e.stopPropagation();
-    let task = this.prepTaskForCreate()
-    console.log(task)
-    this.props.createTask(task)
-      .then(this.setState({ newTaskModal: false }))
-      .then(this.props.requestTasks(task.list_id))
+    this.props.createTask(this.state.task)
   }
 
   updateForm(field) {
     return (e) => {
-      const task = this.state.task
-      task[field] = e.target.value
-      this.setState({ task: task } )
+      this.setState({ task: { [field]: e.target.value } })
     }
   }
 
@@ -86,6 +72,8 @@ class NavBar extends React.Component {
   }
 
   render() {
+    const firstInitial = this.props.first_name[0]
+    const lastInitial = this.props.last_name[0]
 
     let modal;
     if (this.state.showNewButtonModal === true) {
@@ -98,7 +86,7 @@ class NavBar extends React.Component {
           <div className="new-button-dropdown">
             <ul className="new-button-ul">
               <li key={1}
-                onClick={() => this.setState({ newTaskModal: true, showNewButtonModal: false })}>
+                onClick={() => this.setState({ newTaskModal: true })}>
                 <img className="checkbox" src={window.checkURL} />
                 Task
               </li>
@@ -157,7 +145,7 @@ class NavBar extends React.Component {
               <label className="new-task-for">For</label>
               <label className="user-name">
                 <div className="new-task-initials">{firstInitial}{lastInitial}</div>
-                {this.props.first_name}{this.props.last_name}
+                {firstInitial}{lastInitial}
               </label>
               <label className="in">in</label>
               <div 
@@ -199,7 +187,7 @@ class NavBar extends React.Component {
             <button
               className="profile-dropdown-button"
               onClick={() => this.props.openModal('profile')}>
-              {this.state.firstInitial}{this.state.lastInitial}
+              {firstInitial}{lastInitial}
             </button>
             <div className="profile-hover-dropdown-content">
               <label>

@@ -8,8 +8,8 @@ class TaskForm extends React.Component {
     super(props)
     this.state = props.task
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.updateForm = this.updateForm.bind(this)
   }
 
   updateTask(task_name, list_id) {
@@ -25,18 +25,21 @@ class TaskForm extends React.Component {
     )
   }
 
-  // handleSubmit(e) {
-  //   this.props.submitEvent(this.state)
-  // }
-
   updateForm(field) {
     return (e) => {
       this.setState({ [field]: e.target.value })
     }
   }
+  // updateForm(field) {
+  //   return (e) => {
+  //     const task = this.state.task
+  //     task[field] = e.target.value
+  //     this.setState({ task: task })
+  //   }
+  // }
 
   handleSubmit(e) {
-    e.stopPropagation();
+    // e.stopPropagation();
     let task = this.updateTask(this.state.task_name, this.props.listId)
     if (this.props.formType === 'new') {
       this.props.createTask(task)
@@ -71,7 +74,7 @@ class TaskForm extends React.Component {
           <input 
             className="task-form-name-input"
             type="text"
-            defaultValue={this.state.name}
+            value={this.state.name}
             onChange={this.updateForm("task_name")}/>
           <div className="task-form-description">
             <img className="task-form-doc-img" src={window.documentURL}/>
