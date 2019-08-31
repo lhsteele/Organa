@@ -13,14 +13,8 @@ class Home extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.props.requestProjects();
-  // }
 
   render() {
-    // const firstInitial = this.props.first_name[0]
-    // const lastInitial = this.props.last_name[0]
-
 
     return (
       <div className="window">

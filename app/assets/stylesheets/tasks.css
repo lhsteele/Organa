@@ -51,7 +51,6 @@
   border-radius: 5px;
   border: 1px solid #dedede;
   position: relative;
-  z-index: -5;
 }
 
 .task-edit-nav {

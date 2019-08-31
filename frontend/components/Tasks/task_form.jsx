@@ -15,9 +15,9 @@ class TaskForm extends React.Component {
   updateTask(task_name, list_id) {
     return (
      {
-        id: this.state.id,
+        id: this.state.id || "",
         list_id: list_id,
-        task_name: task_name,
+        name: task_name,
         section_name: this.state.section_name || "",
         task_body: this.state.task_body || "",
         complete: this.state.complete || false
@@ -39,8 +39,10 @@ class TaskForm extends React.Component {
   // }
 
   handleSubmit(e) {
-    // e.stopPropagation();
-    let task = this.updateTask(this.state.task_name, this.props.listId)
+    e.stopPropagation();
+    let task = this.updateTask(this.state.name, this.props.listId)
+    console.log(task);
+    
     if (this.props.formType === 'new') {
       this.props.createTask(task)
         .then(this.props.closeElement)
@@ -74,12 +76,12 @@ class TaskForm extends React.Component {
           <input 
             className="task-form-name-input"
             type="text"
-            value={this.state.name}
-            onChange={this.updateForm("task_name")}/>
+            defaultValue={this.state.name}
+            onChange={this.updateForm("name")}/>
           <div className="task-form-description">
             <img className="task-form-doc-img" src={window.documentURL}/>
             <p 
-              value={this.state.task_body}
+              defaultValue={this.state.task_body}
               className="task-form-body-input"
               onChange={this.updateForm("task_body")}>
             </p>
