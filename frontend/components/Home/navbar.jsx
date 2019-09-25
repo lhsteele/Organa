@@ -87,11 +87,11 @@ class NavBar extends React.Component {
           </div>
           <div className="new-button-dropdown">
             <ul className="new-button-ul">
-              <li key={1}
+              {/* <li key={1}
                 onClick={() => this.setState({ newTaskModal: true })}>
                 <img className="checkbox" src={window.checkURL} />
                 Task
-              </li>
+              </li> */}
               <li key={2}>
                 <img className="clipboard" src={window.clipboardURL} />
                 <Link to="/projects/new"

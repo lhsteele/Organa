@@ -10,7 +10,6 @@ class ProfileButtonModal extends React.Component {
   }
 
   handleLogout(e) {
-    // e.preventDefault()
     e.stopPropagation()
     this.props.logoutUser().then(this.props.closeModal)
       .then(() => this.props.history.push("/"));
@@ -22,13 +21,11 @@ class ProfileButtonModal extends React.Component {
         <ul className="profile-dropdown">
           <li>
             <ul className="current-project-subsection">
-              {/* retrieve current team name and put below */}
               <li className="current-project-label">Team Name</li>
             </ul>
           </li>
           <li>
             <ul className="profile-and-logout">
-              {/* link to profile page here */}
               <li>
                 <button className="logout-button" onClick={this.handleLogout}>Log Out</button>
               </li>

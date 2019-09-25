@@ -17,7 +17,7 @@ class TaskForm extends React.Component {
      {
         id: this.state.id || "",
         list_id: list_id,
-        name: task_name,
+        task_name: task_name,
         section_name: this.state.section_name || "",
         task_body: this.state.task_body || "",
         complete: this.state.complete || false
@@ -68,7 +68,7 @@ class TaskForm extends React.Component {
             <img 
               src={window.onlyCheckURL} 
               className="only-check-img"/>
-            Mark Complete
+            Completed
           </button>
           <div onClick={this.props.closeElement} className="task-close-x">X</div>
         </div>
